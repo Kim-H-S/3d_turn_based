@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class UIManagerLobby : MonoBehaviour
 {
-    public static UIManager Instance;
+    public static UIManagerLobby Instance;
 
     [Header("Canvas")]
     [SerializeField] public GameObject canvasMap;
@@ -17,17 +17,6 @@ public class UIManager : MonoBehaviour
     {
         Instance = this;
 
-        
-    }
 
-    void Start()
-    {
-        
-        
-    }
-
-    void Update()
-    {
-        
     }
 }
