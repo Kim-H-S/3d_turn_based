@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MapButton : MonoBehaviour
+public class ButtonMapOpen : MonoBehaviour
 {
     
 
-    void OnClick()
+    public void OnClick()
     {
-        
+        UIManagerLobby.Instance.canvasMap.SetActive(true);
     }
 }
