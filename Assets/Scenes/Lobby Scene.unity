@@ -152,8 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a560b9e598485fd4a9fb388a1e582614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasMap: {fileID: 8151714503500479316, guid: 074d0e934ea5a78428b2bf63db2342bd,
-    type: 3}
+  canvasMap: {fileID: 1088049214}
   buttonMapOpen: {fileID: 1435525899}
   buttonMapClose: {fileID: 1248655091}
 --- !u!4 &197742078
@@ -263,6 +262,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1088049214 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8151714503500479316, guid: 074d0e934ea5a78428b2bf63db2342bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 7064726059415971174}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1248655091 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 825788011579355657, guid: 074d0e934ea5a78428b2bf63db2342bd,
