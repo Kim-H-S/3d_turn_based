@@ -269,12 +269,36 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7064726059415971174}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1248655097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248655091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8e2b7a4183c1d84eae49842d875f832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1435525899 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1158260532685386282, guid: d5605585f542cad4abe0fe8d3a89d79e,
     type: 3}
   m_PrefabInstance: {fileID: 8280000158863428438}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1435525905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435525899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbecd294daaa07b40bb349955fcb1790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1443949268
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,6 +493,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2680221397758168391, guid: 074d0e934ea5a78428b2bf63db2342bd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1248655097}
+    - target: {fileID: 2680221397758168391, guid: 074d0e934ea5a78428b2bf63db2342bd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
     - target: {fileID: 2871103071221895399, guid: 074d0e934ea5a78428b2bf63db2342bd,
         type: 3}
       propertyPath: m_Pivot.x
@@ -579,10 +613,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas Map
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8151714503500479316, guid: 074d0e934ea5a78428b2bf63db2342bd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7221250877269561890, guid: 074d0e934ea5a78428b2bf63db2342bd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 825788011579355657, guid: 074d0e934ea5a78428b2bf63db2342bd,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1248655097}
   m_SourcePrefab: {fileID: 100100000, guid: 074d0e934ea5a78428b2bf63db2342bd, type: 3}
 --- !u!1001 &8280000158863428438
 PrefabInstance:
@@ -592,6 +636,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 918662850140218723, guid: d5605585f542cad4abe0fe8d3a89d79e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1435525905}
+    - target: {fileID: 918662850140218723, guid: d5605585f542cad4abe0fe8d3a89d79e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 918662850140218723, guid: d5605585f542cad4abe0fe8d3a89d79e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ButtonMapOpen, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2477252926872434075, guid: d5605585f542cad4abe0fe8d3a89d79e,
         type: 3}
       propertyPath: m_Name
@@ -702,8 +761,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4190618035513650322, guid: d5605585f542cad4abe0fe8d3a89d79e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1158260532685386282, guid: d5605585f542cad4abe0fe8d3a89d79e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1435525905}
   m_SourcePrefab: {fileID: 100100000, guid: d5605585f542cad4abe0fe8d3a89d79e, type: 3}
