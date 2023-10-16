@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class UIMapTemp : MonoBehaviour
 {
-    Location[,] mapData;
-
-    public GameObject WoodIcon;
-    public GameObject StoneIcon;
-    // UIMap의 크기가 Width 1000, Height 1080
+    public bool isDraw = false;
+   // UIMap의 크기가 Width 1000, Height 1080
     // Icon들의 크기가 Width 50, Height 50
     // Map 배열이 10 * 10 이라고
     // 이라고 가정하고 테스트
@@ -34,12 +31,12 @@ public class UIMapTemp : MonoBehaviour
     public bool isSetting = false;
     private void Awake()
     {
-        mapData = MapManager.Instance.Map;
         realMapWidth = (IconWidth + IconPaddingWidth) * MapWidth - IconPaddingWidth;
         realMapHeight = (IconHeight + IconPaddingHeight) * MapHeight - IconPaddingHeight;
 
         int paddingWidth = (UIMapWidth - realMapWidth) / 2;
         int paddingHeight = (UIMapHeight - realMapHeight) / 2;
+
         startPosX = -(UIMapWidth) / 2 + (IconWidth + IconPaddingWidth) / 2 + paddingWidth;
         startPosY = -(UIMapHeight) / 2 + (IconHeight + IconPaddingHeight) / 2 + paddingHeight;
 
@@ -47,24 +44,10 @@ public class UIMapTemp : MonoBehaviour
     }
     public void OnEnable()
     {
-        IconSetting();
-    }
-    public void IconSetting()
-    {
-        if (isSetting) return;
+        if (isDraw) return;
 
-        for (int i = 0; i < mapData.GetLength(0); i++)
-        {
-            for (int j = 0; j < mapData.GetLength(1); j++)
-            {
-                Location loaction = mapData[i, j];
-                if (loaction != null)
-                {
-                    Vector2 IconPos = new Vector2(startPosX + (IconWidth + IconPaddingWidth) * i, startPosY + (IconHeight + IconPaddingHeight) * j);
-                    loaction.DrawLocationIcon(transform, IconPos);
-                }
-            }
-        }
-        isSetting = true;
+        MapManager.Instance.DrawMap(transform, startPosX, startPosY, IconWidth + IconPaddingWidth, IconHeight + IconPaddingHeight);
+        isDraw = true;  
     }
+
 }
