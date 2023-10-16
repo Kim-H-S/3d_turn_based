@@ -12,6 +12,9 @@ public class UIManager : MonoBehaviour
     public GameObject canvasGameClear;
     public GameObject canvasGameOver;
 
+    [Header("Windows")]
+    public GameObject windowSetting;
+
     //[Header("Buttons")]
     // 셋팅 버튼
 

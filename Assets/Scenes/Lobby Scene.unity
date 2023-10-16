@@ -154,6 +154,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasMap: {fileID: 1088049214}
   canvasDifficulty: {fileID: 0}
+  canvasGameClear: {fileID: 0}
+  canvasGameOver: {fileID: 0}
+  windowSetting: {fileID: 1916250215}
 --- !u!4 &197742078
 Transform:
   m_ObjectHideFlags: 0
@@ -576,6 +579,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fceb0415823858142ab18ac73c1573b8, type: 3}
+--- !u!1 &1916250215 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4440748865664351866, guid: fceb0415823858142ab18ac73c1573b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1585205749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6577448584740906185
 PrefabInstance:
   m_ObjectHideFlags: 0
