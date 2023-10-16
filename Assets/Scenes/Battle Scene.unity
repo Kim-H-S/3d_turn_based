@@ -383,6 +383,7 @@ MonoBehaviour:
     type: 3}
   canvasGameOver: {fileID: 8431151719839722398, guid: e2ecdda1c5b983841b24c237f5286ba2,
     type: 3}
+  windowSetting: {fileID: 0}
 --- !u!1 &1915711056
 GameObject:
   m_ObjectHideFlags: 0
