@@ -9,9 +9,7 @@ public class UIManager : MonoBehaviour
     [Header("Canvas")]
     [SerializeField] public GameObject canvasMap;
 
-    [Header("Buttons")]
-    [SerializeField] public GameObject buttonMapOpen;
-    [SerializeField] public GameObject buttonMapClose;
+    //[Header("Buttons")]
     // 셋팅 버튼
 
 
