@@ -6,6 +6,6 @@ public class ButtonMapClose : MonoBehaviour
 {
     public void OnClick()
     {
-        UIManagerLobby.Instance.canvasMap.SetActive(false);
+        UIManager.Instance.canvasMap.SetActive(false);
     }
 }
