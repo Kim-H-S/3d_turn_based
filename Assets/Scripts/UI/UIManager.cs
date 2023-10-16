@@ -7,8 +7,10 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     [Header("Canvas")]
-    [SerializeField] public GameObject canvasMap;
-    [SerializeField] public GameObject canvasDifficulty;    // Difficulty;난이도
+    public GameObject canvasMap;
+    public GameObject canvasDifficulty;    // Difficulty;난이도
+    public GameObject canvasGameClear;
+    public GameObject canvasGameOver;
 
     //[Header("Buttons")]
     // 셋팅 버튼
