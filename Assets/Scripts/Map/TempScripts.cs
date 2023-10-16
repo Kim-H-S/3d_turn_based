@@ -8,7 +8,29 @@ public class TempScripts : MonoBehaviour
 
     private void Awake()
     {
-        mg = new MapGenerator();
-        mg.Init(10, 10);
+        MapManager.Instance.GenerateNewMap(10, 10);
+
+        Location? location = null; 
+        //test
+
+        for(int i =0; i < 10; i++)
+        {
+            for(int j = 0; j < 10; j++)
+            {
+                if (MapManager.Instance.Map[i, j] != null) 
+                {
+                    location = MapManager.Instance.Map[i, j];
+                    break;
+                }
+                    
+            }
+
+            if(location != null)
+            {
+                break;
+            }
+        }
+
+        MapManager.Instance.EnterMap(location.LocationPos);
     }
 }
