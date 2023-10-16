@@ -598,6 +598,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas Difficulty
       objectReference: {fileID: 0}
+    - target: {fileID: 3182137238810039046, guid: 2e2faf540f36812448357dde100f7f52,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5954128288035828515, guid: 2e2faf540f36812448357dde100f7f52,
         type: 3}
       propertyPath: m_Pivot.x
