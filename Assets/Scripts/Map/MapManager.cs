@@ -42,6 +42,22 @@ public class MapManager
         selectablePos = new List<Pos> { new Pos(0, 0), new Pos(xLength - 1, 0), new Pos(0, yLength - 1), new Pos(xLength - 1, yLength - 1) };
     }
 
+    public void DrawMap(Transform parent, int startPosX, int startPosY, int width, int height)
+    {
+        for (int i = 0; i < Map.GetLength(0); i++)
+        {
+            for (int j = 0; j < Map.GetLength(1); j++)
+            {
+                Location loaction = Map[i, j];
+                if (loaction != null)
+                {
+                    Vector2 IconPos = new Vector2(startPosX + width * i, startPosY + height * j);
+                    loaction.DrawLocationIcon(parent, IconPos);
+                }
+            }
+        }
+    }
+
     public void LoadAllMapPrefabs()
     {
         var gameObjects = Resources.LoadAll("Prefabs/Map");
