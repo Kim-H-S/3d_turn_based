@@ -47,7 +47,6 @@ public class UIMapTemp : MonoBehaviour
     }
     public void OnEnable()
     {
-        Debug.Log("enable");
         IconSetting();
     }
     public void IconSetting()
@@ -68,10 +67,12 @@ public class UIMapTemp : MonoBehaviour
                         case LocationType.WoodArea:
                             go = Instantiate(WoodIcon, transform);
                             go.transform.localPosition = (Vector3)IconPos;
+                            go.GetComponent<UIMapIconTemp>().Init(loaction);
                             break;
                         case LocationType.StoneArea:
                             go = Instantiate(StoneIcon, transform);
                             go.transform.localPosition = (Vector3)IconPos;
+                            go.GetComponent<UIMapIconTemp>().Init(loaction);
                             break;
                         default:
                             break;

@@ -23,10 +23,13 @@ public class MapManager
     }
 
     public Location[,] Map { get; private set; }
-    public GameObject CurrentLocation { get; private set; }
-    
-    private Pos PrevLocationPos { get; set; }
-    private GameObject PrevLocation { get; set; }
+    public Location CurrentLocation { get; private set; }
+    public GameObject CurrentMap { get; private set; }
+
+    public List<Pos> selectablePos { get; private set; }
+
+    private Location PrevLocation { get; set; }
+    private GameObject PrevMap { get; set; }
 
     private MapGenerator _mapGenerator = new MapGenerator();
     private Dictionary<LocationType, List<GameObject>> _mapList = new Dictionary<LocationType, List<GameObject>>();
@@ -35,6 +38,7 @@ public class MapManager
     {
         _mapGenerator.Init(xLength, yLength);
         Map = _mapGenerator.Map;
+        selectablePos = new List<Pos> { new Pos(0, 0), new Pos(xLength - 1, 0), new Pos(0, yLength - 1), new Pos(xLength - 1, yLength - 1) };
     }
 
     public void LoadAllMapPrefabs()
@@ -63,18 +67,40 @@ public class MapManager
     {
         if (Map[pos.Y, pos.X] == null) return;
 
-        if (PrevLocation != null && pos.Y == PrevLocationPos.Y && pos.X == PrevLocationPos.X) 
-        {
-            GameObject temp = CurrentLocation;
-            CurrentLocation = PrevLocation;
-            PrevLocation = temp;
+        // 이동할수 있는 좌표가 맞는지 확인
 
-            PrevLocation.SetActive(false);
-            CurrentLocation.SetActive(true);
+        if (!selectablePos.Contains(pos))
+        {
+            foreach (Pos temp in selectablePos)
+            {
+                Debug.Log($"y : {temp.Y}, x : {temp.X}");
+            }
+            Debug.Log("\n");
+
+
+            Debug.Log("현재 이동할 수 없는 곳 입니다");
+            return;
+        }
+
+
+        if (PrevLocation != null && pos.Y == PrevLocation.LocationPos.Y && pos.X == PrevLocation.LocationPos.X)
+        {
+            GameObject temp = CurrentMap;
+            Location locationTemp = CurrentLocation;
+
+            CurrentLocation = PrevLocation;
+            CurrentMap = PrevMap;
+
+            PrevLocation = locationTemp;
+            PrevMap = temp; 
+
+            PrevMap.SetActive(false);
+            CurrentMap.SetActive(true);
         }
         else
         {
-            LocationType type = Map[pos.Y, pos.X].LocationType;
+            Location location = Map[pos.Y, pos.X];
+            LocationType type = location.LocationType;
             ExitMap();
 
             if (_mapList[type].Count == 0)
@@ -83,21 +109,27 @@ public class MapManager
                 return;
             }
             int randInt = UnityEngine.Random.Range(0, _mapList[type].Count);
-            CurrentLocation = GameObject.Instantiate(_mapList[type][randInt]);
+            CurrentLocation = location;
+            CurrentMap = GameObject.Instantiate(_mapList[type][randInt]);
         }
-        
+
+        // 임시로 카메라를 PlayerSpawnPoint로 이동 맵의 4번째 자식오브젝트(PlayerSpawnPoint)로 이동
+        selectablePos = CurrentLocation.AdjLocations;
+        Camera.main.transform.position = CurrentMap.transform.GetChild(4).position;
     }
 
     public void ExitMap()
     {
-        if (CurrentLocation == null) return;
+        if (CurrentMap == null) return;
 
-        if (PrevLocation != null) 
+        if (PrevMap != null) 
         {
-            GameObject.Destroy(PrevLocation);
+            GameObject.Destroy(PrevMap);
         }
 
+        PrevMap = CurrentMap;
         PrevLocation = CurrentLocation;
-        CurrentLocation.SetActive(false);
+
+        CurrentMap.SetActive(false);
     }
 }

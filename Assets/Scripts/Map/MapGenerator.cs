@@ -41,10 +41,6 @@ public class MapGenerator
         CheckAdjLocations();
         CheckMapWithDebugLog();
     }
-    public void DrawMap(Transform mapUI)
-    {
-        // MapUI의 Transform을 받아서 mapUI아래에 맵을 그린다.
-    }
     private void Generate(Pos startPos, Pos endPos)
     {
         // 범위를 제한.
@@ -138,7 +134,7 @@ public class MapGenerator
         {
             for(int j =0; j< x; j++)
             {
-                if (Map[i, j] == null) return;
+                if (Map[i, j] == null) continue;
                 
                 foreach(Pos dir in Dir)
                 {

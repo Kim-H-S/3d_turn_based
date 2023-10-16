@@ -15,9 +15,5 @@ public class UITemp : MonoBehaviour
     private void OpenMap()
     {
         UIMap.SetActive(true);
-
-        
     }
-
-
 }
