@@ -61,22 +61,7 @@ public class UIMapTemp : MonoBehaviour
                 if (loaction != null)
                 {
                     Vector2 IconPos = new Vector2(startPosX + (IconWidth + IconPaddingWidth) * i, startPosY + (IconHeight + IconPaddingHeight) * j);
-                    GameObject go;
-                    switch (loaction.LocationType)
-                    {
-                        case LocationType.WoodArea:
-                            go = Instantiate(WoodIcon, transform);
-                            go.transform.localPosition = (Vector3)IconPos;
-                            go.GetComponent<UIMapIconTemp>().Init(loaction);
-                            break;
-                        case LocationType.StoneArea:
-                            go = Instantiate(StoneIcon, transform);
-                            go.transform.localPosition = (Vector3)IconPos;
-                            go.GetComponent<UIMapIconTemp>().Init(loaction);
-                            break;
-                        default:
-                            break;
-                    }
+                    loaction.DrawLocationIcon(transform, IconPos);
                 }
             }
         }

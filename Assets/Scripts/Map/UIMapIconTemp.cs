@@ -19,18 +19,17 @@ public class UIMapIconTemp : MonoBehaviour
             Seleted.SetActive(true);
             Seletable.SetActive(false);
         }
-        else if (MapManager.Instance.selectablePos.Contains(locationInfo.LocationPos)) 
+        else if (MapManager.Instance.selectablePos.Contains(locationInfo.LocationPos))
         {
             Seleted.SetActive(false);
             Seletable.SetActive(true);
         }
         else
         {
+
             Seleted.SetActive(false);
             Seletable.SetActive(false);
-        }
-        //만약 현재 location이 Selectable인지
-        //만약 현재 location이 Current인지
+        }     
 
     }
 
@@ -42,6 +41,5 @@ public class UIMapIconTemp : MonoBehaviour
     {
         MapManager.Instance.EnterMap(locationInfo.LocationPos);
         transform.parent.gameObject.SetActive(false);
-        //Map 지도가 내려가야됨.
     }
 }

@@ -33,6 +33,7 @@ public class MapManager
 
     private MapGenerator _mapGenerator = new MapGenerator();
     private Dictionary<LocationType, List<GameObject>> _mapList = new Dictionary<LocationType, List<GameObject>>();
+    public Dictionary<LocationType, GameObject> _iconList = new Dictionary<LocationType, GameObject>();
 
     public void GenerateNewMap(int xLength, int yLength)
     {
@@ -61,6 +62,17 @@ public class MapManager
                 }
             }
         }
+
+        gameObjects = Resources.LoadAll("Prefabs/LocationIcon");
+
+        foreach(GameObject gameObject in gameObjects)
+        {
+            string goName = gameObject.name;
+            if(Enum.TryParse(goName, out LocationType type)) 
+            {
+                _iconList.Add(type, gameObject);
+            }
+        }
     }
 
     public void EnterMap(Pos pos)
@@ -71,14 +83,6 @@ public class MapManager
 
         if (!selectablePos.Contains(pos))
         {
-            foreach (Pos temp in selectablePos)
-            {
-                Debug.Log($"y : {temp.Y}, x : {temp.X}");
-            }
-            Debug.Log("\n");
-
-
-            Debug.Log("현재 이동할 수 없는 곳 입니다");
             return;
         }
 

@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: -8873798492688226508}
   - component: {fileID: 6931849287164112432}
   m_Layer: 5
-  m_Name: StoneIcon
+  m_Name: StoneArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
