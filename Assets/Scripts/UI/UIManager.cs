@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManagerLobby : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
-    public static UIManagerLobby Instance;
+    public static UIManager Instance;
 
     [Header("Canvas")]
     [SerializeField] public GameObject canvasMap;
@@ -12,6 +12,8 @@ public class UIManagerLobby : MonoBehaviour
     [Header("Buttons")]
     [SerializeField] public GameObject buttonMapOpen;
     [SerializeField] public GameObject buttonMapClose;
+    // 셋팅 버튼
+
 
     private void Awake()
     {
