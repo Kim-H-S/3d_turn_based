@@ -9,16 +9,14 @@ public class GameManager : MonoBehaviour
 
     public Inventory Inventory = new Inventory();
 
-    public Transform tempPos;
-
     public Transform InventoryUI;
+
+    public GameObject MapUI;
 
     private void Awake()
     {
         _instance = this;
         DontDestroyOnLoad(gameObject);
-        Camera.main.transform.position = tempPos.position + new Vector3(0, 10, 0);
-        Camera.main.transform.rotation = Quaternion.Euler(45, 0, 0);
     }
 
     private void Start()
@@ -28,6 +26,10 @@ public class GameManager : MonoBehaviour
 
     public void GameInit()
     {
+        MapManager.Instance.EnterLobby();
+        Transform tempPos = MapManager.Instance.LobbyMap.transform.GetChild(4).transform;
+        Camera.main.transform.position = tempPos.position + new Vector3(0, 10, 0);
+        Camera.main.transform.rotation = Quaternion.Euler(45, 0, 0);
         MapManager.Instance.GenerateNewMap(4, 4);
     }
 

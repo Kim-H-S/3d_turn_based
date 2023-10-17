@@ -23,6 +23,8 @@ public class MapManager
     }
 
     public Location[,] Map { get; private set; }
+
+    public GameObject LobbyMap { get; private set; }    
     public Location CurrentLocation { get; private set; }
     public GameObject CurrentMap { get; private set; }
 
@@ -149,5 +151,19 @@ public class MapManager
         PrevLocation = CurrentLocation;
 
         CurrentMap.SetActive(false);
+    }
+
+    public void EnterLobby()
+    {
+        if (LobbyMap == null)
+        {
+            LobbyMap = GameObject.Instantiate((_mapList[LocationType.Lobby][0]));
+        }
+        LobbyMap.SetActive(true);
+    }
+
+    public void ExitLobby()
+    {
+        LobbyMap.SetActive(false);
     }
 }

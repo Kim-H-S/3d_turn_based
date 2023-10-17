@@ -40,10 +40,6 @@ public class Inventory
 
     public void RemoveItemFromInventory(int index) 
     {
-        // 인벤토리에서 아이템을 드래그해서 바깥에 놓으면 실행된다?
-
-        // 아이템을 파괴하는것으로하고 그때 
-
         EmptySlot.Add(index);
         RemoveItemUI(index);
         inventorySlot[index] = null;
