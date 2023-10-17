@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     public void GameInit()
     {
         MapManager.Instance.EnterLobby();
-        Transform tempPos = MapManager.Instance.LobbyMap.transform.GetChild(4).transform;
+        Transform tempPos = MapManager.Instance.CurrentMap.transform.GetChild(4).transform;
         Camera.main.transform.position = tempPos.position + new Vector3(0, 10, 0);
         Camera.main.transform.rotation = Quaternion.Euler(45, 0, 0);
         MapManager.Instance.GenerateNewMap(4, 4);

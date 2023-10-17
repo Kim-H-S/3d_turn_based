@@ -36,9 +36,9 @@ public class ItemTemp : MonoBehaviour
 
     public void click()
     {
-        if (GameManager.Instance.Inventory.AddItemToInventory(item))
+        if (GameManager.Instance.Inventory.AddItemToInventory(gameObject))
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

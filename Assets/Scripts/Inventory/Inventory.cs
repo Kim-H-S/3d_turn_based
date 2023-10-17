@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Inventory
 {
 
-    ItemSO[] inventorySlot;
+    GameObject[] inventorySlot;
     List<int> EmptySlot;
 
     public Inventory()
@@ -15,7 +17,7 @@ public class Inventory
 
     public void InitInventorySlot()
     {
-        inventorySlot = new ItemSO[10]; 
+        inventorySlot = new GameObject[10]; 
         EmptySlot = new List<int>();
 
         for (int i = 0; i < 10; i++) 
@@ -24,7 +26,7 @@ public class Inventory
         }
     }
 
-    public bool AddItemToInventory(ItemSO item) 
+    public bool AddItemToInventory(GameObject item) 
     {
         if (EmptySlot.Count <= 0) return false;
 
@@ -38,11 +40,14 @@ public class Inventory
         return true;
     }
 
-    public void RemoveItemFromInventory(int index) 
+    public void RemoveItemFromInventory(int index, Vector2 pos) 
     {
         EmptySlot.Add(index);
         RemoveItemUI(index);
+        inventorySlot[index].SetActive(true);
+        inventorySlot[index].transform.position = pos;
         inventorySlot[index] = null;
+        
     }
 
     public void AddItemUI(int index)

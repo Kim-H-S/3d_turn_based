@@ -27,7 +27,6 @@ public class Portal : MonoBehaviour
             {
                 if (hit.collider.gameObject == gameObject)
                 {
-                    MapManager.Instance.ExitLobby();
                     MapUI.SetActive(true);
                 }
             }

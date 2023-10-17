@@ -14,6 +14,7 @@ public class UIMapIconTemp : MonoBehaviour
     private void Update()
     {
         Location location = MapManager.Instance.CurrentLocation;
+
         if (location == locationInfo)
         {
             Seleted.SetActive(true);

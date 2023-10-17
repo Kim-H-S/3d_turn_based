@@ -32,8 +32,8 @@ public class UIItemSlotTemp : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     {
         if (!RectTransformUtility.RectangleContainsScreenPoint(limitZone, eventData.position))
         {
-            //아이템 삭제
-            GameManager.Instance.Inventory.RemoveItemFromInventory(transform.GetSiblingIndex());
+            //아이템을 인벤토리에서 꺼내서 바닥에버림 나중에 플레이어의 위치로 변경
+            GameManager.Instance.Inventory.RemoveItemFromInventory(transform.GetSiblingIndex(), Camera.main.ScreenToWorldPoint(lastDragPosition));
         }
         transform.position = initialPosition;
     }
