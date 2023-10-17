@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Windows")]
     public GameObject windowSetting;
+    public GameObject windowLogin;
     public GameObject windowEnemyInfo;
 
     private void Awake()
