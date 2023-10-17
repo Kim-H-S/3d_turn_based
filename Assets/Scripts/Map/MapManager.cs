@@ -150,4 +150,10 @@ public class MapManager
 
         CurrentMap.SetActive(false);
     }
+
+    public void EnterLobby()
+    {
+        CurrentMap  = GameObject.Instantiate((_mapList[LocationType.Lobby][0]));
+        CurrentMap.SetActive(true);
+    }
 }
