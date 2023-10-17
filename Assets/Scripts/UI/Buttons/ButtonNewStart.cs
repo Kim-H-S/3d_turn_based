@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonNewStart : MonoBehaviour
 {
+    private string lobbyScene = "Lobby Scene";
+
     public void OnClick()
     {
-        //print("ButtonNewStart 클래스의 OnClick 함수가 호출되었다.");
+        DataManager.Instance.DataInit();
+        DataManager.Instance.DataSave();
+
+        SceneManager.LoadScene(lobbyScene);
     }
 }
