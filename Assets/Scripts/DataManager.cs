@@ -13,10 +13,10 @@ public class DataManager : MonoBehaviour
 {
     static public DataManager Instance;
 
-    PlayerData currentPlayerData = new PlayerData();
+    public PlayerData playerData = new PlayerData();
 
-    string path;
-    string filename = "save";
+    [HideInInspector] public string path;
+    [HideInInspector] public string filename = "save.txt";
 
     private void Awake()
     {
@@ -29,20 +29,33 @@ public class DataManager : MonoBehaviour
 
     private void Start()
     {
-        
+        //Debug.Log(path);
     }
 
-    public void SaveData()
+    public void DataInit()
     {
-        string playerdata = JsonUtility.ToJson(currentPlayerData);
+        playerData.level = 1;
+        playerData.gold = 100;
+
+        DataSave();
+    }
+
+    public void DataSave()
+    {
+        string playerdata = JsonUtility.ToJson(playerData);
 
         File.WriteAllText(path + filename, playerdata);
     }
 
-    public void LoadData()
+    public void DataLoad()
     {
         string data = File.ReadAllText(path + filename);
 
-        currentPlayerData = JsonUtility.FromJson<PlayerData>(data);
+        playerData = JsonUtility.FromJson<PlayerData>(data);
+    }
+
+    public void DataClear()
+    {
+        playerData = new PlayerData();
     }
 }

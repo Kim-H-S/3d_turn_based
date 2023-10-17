@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
+
+    [Header("Texts")]
+    public TextMeshPro textPlayerLevel;
+    public TextMeshPro textPlayerGold;
 
     [Header("Canvas")]
     public GameObject canvasMap;
