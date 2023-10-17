@@ -14,10 +14,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Windows")]
     public GameObject windowSetting;
-
-    //[Header("Buttons")]
-    // 셋팅 버튼
-
+    public GameObject windowEnemyInfo;
 
     private void Awake()
     {
