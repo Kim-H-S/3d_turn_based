@@ -11,8 +11,8 @@ public class UIMapTemp : MonoBehaviour
     // 이라고 가정하고 테스트
 
     //맵 배열의 크기
-    int MapWidth = 10;
-    int MapHeight = 10; 
+    int MapWidth;
+    int MapHeight; 
 
     // UIMap의 크기
     int UIMapWidth = 1000;
@@ -35,8 +35,13 @@ public class UIMapTemp : MonoBehaviour
     int startPosY; 
 
     public bool isSetting = false;
-    private void Awake()
+
+    public void OnEnable()
     {
+        if (isDraw) return;
+
+        MapWidth = MapManager.Instance.Map.GetLength(1);
+        MapHeight = MapManager.Instance.Map.GetLength(0);
         // 실제 맵의 크기 == 하나의 아이콘을 그리는데 필요한 공간 * 아이콘의 갯수 - (마지막 아이콘은 간격이 필요없음)
         realMapWidth = (IconWidth + IconPaddingWidth) * MapWidth - IconPaddingWidth;
         realMapHeight = (IconHeight + IconPaddingHeight) * MapHeight - IconPaddingHeight;
@@ -48,12 +53,6 @@ public class UIMapTemp : MonoBehaviour
         // 아이콘의 시작 좌표를 계산.
         startPosX = -(UIMapWidth) / 2 + (IconWidth + IconPaddingWidth) / 2 + paddingWidth;
         startPosY = -(UIMapHeight) / 2 + (IconHeight + IconPaddingHeight) / 2 + paddingHeight;
-
-        
-    }
-    public void OnEnable()
-    {
-        if (isDraw) return;
 
         MapManager.Instance.DrawMap(transform, startPosX, startPosY, IconWidth + IconPaddingWidth, IconHeight + IconPaddingHeight);
         isDraw = true;  
