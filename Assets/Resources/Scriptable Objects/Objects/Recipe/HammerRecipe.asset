@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: HammerRecipe
   m_EditorClassIdentifier: 
   requiredItems:
-  - itemSO: {fileID: 11400000, guid: 60cdc9a85869e2c42a095751a7f4d966, type: 2}
-    count: 0
-  - itemSO: {fileID: 11400000, guid: 16a11d28d00a9ad4cad888dc192651dd, type: 2}
-    count: 0
-  - itemSO: {fileID: 11400000, guid: fa909866959aea64ca14c4728f5451e3, type: 2}
-    count: 0
+  - itemSO: {fileID: 11400000, guid: 30b60ecd46aae804388384e1979b7a80, type: 2}
+    count: 3
+  - itemSO: {fileID: 11400000, guid: 7d9cc23c0fb8e4a4ea7e1aa1abeda3e5, type: 2}
+    count: 3
+  - itemSO: {fileID: 11400000, guid: 56b345cdc03467542a0b022aa602a743, type: 2}
+    count: 3
   combinationItem: {fileID: 1581931732928406538, guid: 643fed29823747f49aa479190a0795eb,
     type: 3}

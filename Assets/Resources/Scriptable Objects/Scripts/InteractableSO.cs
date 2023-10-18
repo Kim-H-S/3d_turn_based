@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "InteractableData", menuName = "InteractableData/Default", order = 0)]
-public class InteractableSO : ScriptableObject
+public class InteractableSO :ScriptableObject
+
 {
     public string objectName;
     public int interactionTime;

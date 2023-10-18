@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Axe
   itemInfo: Axe
   icon: {fileID: 21300000, guid: cbcc41929fd9c5f4191b1b73c92ad667, type: 3}
-  attack: 0
+  attack: 5

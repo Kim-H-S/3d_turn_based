@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70ba82fc4bca2be43a1931799cb9bff1, type: 3}
-  m_Name: InteractableRock
+  m_Name: Tree
   m_EditorClassIdentifier: 
-  objectName: Rock
-  interactionTime: 1
+  objectName: Tree
+  interactionTime: 3
   dropItemLists:
-  - {fileID: 5764623365734894844, guid: 861eb64b1f93b3f42afa2a4b04c6b57e, type: 3}
+  - {fileID: 8913184512030449936, guid: a71e08e164131504bb689359138fb393, type: 3}

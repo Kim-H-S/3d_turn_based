@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Dagger
   itemInfo: Dagger
   icon: {fileID: 21300000, guid: 43c6069e7daf50442bfa59af95bbac16, type: 3}
-  attack: 0
+  attack: 2
