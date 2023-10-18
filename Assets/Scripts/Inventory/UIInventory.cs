@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,6 +32,11 @@ public class UIInventory : MonoBehaviour
         }
     }
 
+    public int FindIndexItemSO(ItemSO so)
+    {
+        return Array.FindIndex(itemInSlot, item => item.itemSO.itemName == so.itemName);
+    }
+
     public void AddToDictinary(string name)
     {
         if (itemCount.ContainsKey(name))
@@ -62,6 +68,9 @@ public class UIInventory : MonoBehaviour
         inventorySlot[index].AddItemUI(item.itemSO);
 
         UICombination.UpdateUICombination();
+
+        item.transform.SetParent(GameManager.Instance.transform);
+        
 
         return true;
     }
