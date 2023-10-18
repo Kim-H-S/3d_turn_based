@@ -431,6 +431,7 @@ MonoBehaviour:
   txtFirstReel: {fileID: 4501239131540211726}
   txtSecondReel: {fileID: 5087469870035889391}
   txtThirdReel: {fileID: 7680529133394952687}
+  button: {fileID: 3920781056394000940}
 --- !u!1 &6203599425505236108
 GameObject:
   m_ObjectHideFlags: 0
