@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70ba82fc4bca2be43a1931799cb9bff1, type: 3}
-  m_Name: InteractableIronSheet
+  m_Script: {fileID: 11500000, guid: ddc73639d1cc46e47ad6afefc2296195, type: 3}
+  m_Name: Stone
   m_EditorClassIdentifier: 
-  objectName: IronSheet
-  interactionTime: 2
-  dropItemLists:
-  - {fileID: 2007852513019992953, guid: d1b28c9028789ff49be7664464261ef2, type: 3}
+  itemName: Stone
+  itemInfo: Stone
+  icon: {fileID: 21300000, guid: 8c078cef70155d644afe82f61ae7b67f, type: 3}

@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Hammer
   itemInfo: Hammer
   icon: {fileID: 21300000, guid: cd0affedd97cb6f488d93f05c91f36c9, type: 3}
-  attack: 0
+  attack: 4
