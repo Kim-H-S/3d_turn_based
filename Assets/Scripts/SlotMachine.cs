@@ -46,5 +46,11 @@ public class SlotMachine : MonoBehaviour
         secondReelResult = Random.Range(0, 8);
         thirdReelResult = Random.Range(0, 8);
 
+        Invoke("Hide", 1f);
+    }
+
+    void Hide()
+    {
+        UIManager.Instance.canvasSlotMachine.SetActive(false);
     }
 }
