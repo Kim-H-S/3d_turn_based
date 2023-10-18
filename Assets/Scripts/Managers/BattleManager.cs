@@ -26,7 +26,10 @@ public class BattleManager : MonoBehaviour
     public List<Enemy> enemy;
     public Enemy curFocusedEnemy;
 
-    public SlotMachine slotMachine;
+    [Header("UI")]
+    public GameObject UISlotMachine;
+    public GameObject UIAction;
+
     private int slotMachineValue;
     
     private void Update() {
