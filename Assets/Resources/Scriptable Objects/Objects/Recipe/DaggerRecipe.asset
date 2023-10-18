@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073ea01158f2d4244b4298ef7c64311f, type: 3}
+  m_Name: DaggerRecipe
+  m_EditorClassIdentifier: 
+  requiredItems:
+  - itemSO: {fileID: 11400000, guid: 60cdc9a85869e2c42a095751a7f4d966, type: 2}
+    count: 0
+  - itemSO: {fileID: 11400000, guid: 16a11d28d00a9ad4cad888dc192651dd, type: 2}
+    count: 0
+  - itemSO: {fileID: 11400000, guid: fa909866959aea64ca14c4728f5451e3, type: 2}
+    count: 0
+  combinationItem: {fileID: 5458737265024032779, guid: ea816f7cece47574da091aaf86ab56f4,
+    type: 3}
