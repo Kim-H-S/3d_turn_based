@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class UIInventory : MonoBehaviour
 {
@@ -34,7 +35,16 @@ public class UIInventory : MonoBehaviour
 
     public int FindIndexItemSO(ItemSO so)
     {
-        return Array.FindIndex(itemInSlot, item => item.itemSO.itemName == so.itemName);
+        return Array.FindIndex(itemInSlot, item => SlotNullCheck(item,so));
+    }
+
+    public bool SlotNullCheck(Item item, ItemSO so)
+    {
+        if (item == null) return false;
+
+        if (item.itemSO != so )return false;
+
+        return true;
     }
 
     public void AddToDictinary(string name)

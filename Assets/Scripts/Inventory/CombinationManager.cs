@@ -62,8 +62,6 @@ public class CombinationManager
     {
         foreach(RecipeData data in recipes.requiredItems)
         {
-            itemCount[data.itemSO.itemName] -= data.count;
-
             for(int i =0; i< data.count; i++)
             {
                 int index = GameManager.Instance.InventoryUI.FindIndexItemSO(data.itemSO);
