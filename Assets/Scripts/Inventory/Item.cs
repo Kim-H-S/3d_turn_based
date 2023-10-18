@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ItemTemp : MonoBehaviour
+public class Item : MonoBehaviour
 {
-    public ItemSO item;
+    public ItemSO itemSO;
     private void Awake()
     {
     }
@@ -36,7 +36,7 @@ public class ItemTemp : MonoBehaviour
 
     public void click()
     {
-        if (GameManager.Instance.Inventory.AddItemToInventory(gameObject))
+        if (GameManager.Instance.InventoryUI.AddItemToInventory(this))
         {
             gameObject.SetActive(false);
         }
