@@ -508,7 +508,7 @@ MonoBehaviour:
   canvasMap: {fileID: 0}
   canvasDifficulty: {fileID: 0}
   canvasSlotMachine: {fileID: 1085273128}
-  canvasSlotMachine2: {fileID: 0}
+  canvasSlotMachine2: {fileID: 1776558865}
   canvasGameClear: {fileID: 200001130317571243, guid: b464d7cf8219a6b4c8683dcb945ab755,
     type: 3}
   canvasGameOver: {fileID: 8431151719839722398, guid: e2ecdda1c5b983841b24c237f5286ba2,
@@ -521,6 +521,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8044444132667021123, guid: b4199c16c327f0c49b41347c0438aaff,
     type: 3}
   m_PrefabInstance: {fileID: 8357788942425330305}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1776558865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8400302795349084653, guid: bc37a9113df19664e899c1a62a07fb4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2389190763437831743}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1915711056
 GameObject:
@@ -707,11 +713,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas SlotMachine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5736220854019842696, guid: ef2af729de3a30c43a2c2692aef84877,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -977,28 +978,6 @@ PrefabInstance:
       propertyPath: slotMachine
       value: 
       objectReference: {fileID: 1085273129}
-    - target: {fileID: 618528992409888206, guid: bc37a9113df19664e899c1a62a07fb4e,
-        type: 3}
-      propertyPath: m_text
-      value: 000
-      objectReference: {fileID: 0}
-    - target: {fileID: 618528992409888206, guid: bc37a9113df19664e899c1a62a07fb4e,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 926b981f6b8f2444b91ae89863100260,
-        type: 2}
-    - target: {fileID: 618528992409888206, guid: bc37a9113df19664e899c1a62a07fb4e,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -939847984219649512, guid: 926b981f6b8f2444b91ae89863100260,
-        type: 2}
-    - target: {fileID: 618528992409888206, guid: bc37a9113df19664e899c1a62a07fb4e,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1437256314362863058, guid: bc37a9113df19664e899c1a62a07fb4e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1104,85 +1083,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1612402941667869162, guid: bc37a9113df19664e899c1a62a07fb4e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1612402941667869162, guid: bc37a9113df19664e899c1a62a07fb4e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1612402941667869162, guid: bc37a9113df19664e899c1a62a07fb4e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1612402941667869162, guid: bc37a9113df19664e899c1a62a07fb4e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1803839394745264943, guid: bc37a9113df19664e899c1a62a07fb4e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1803839394745264943, guid: bc37a9113df19664e899c1a62a07fb4e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1803839394745264943, guid: bc37a9113df19664e899c1a62a07fb4e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8201681346340591732, guid: bc37a9113df19664e899c1a62a07fb4e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8201681346340591732, guid: bc37a9113df19664e899c1a62a07fb4e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8201681346340591732, guid: bc37a9113df19664e899c1a62a07fb4e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8201681346340591732, guid: bc37a9113df19664e899c1a62a07fb4e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8400302795349084653, guid: bc37a9113df19664e899c1a62a07fb4e,
         type: 3}
       propertyPath: m_Name
       value: Canvas SlotMachine2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8967191255570318420, guid: bc37a9113df19664e899c1a62a07fb4e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8967191255570318420, guid: bc37a9113df19664e899c1a62a07fb4e,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8967191255570318420, guid: bc37a9113df19664e899c1a62a07fb4e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8967191255570318420, guid: bc37a9113df19664e899c1a62a07fb4e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
