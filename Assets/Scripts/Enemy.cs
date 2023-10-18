@@ -2,15 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, ICombatable
+public class Enemy : Character, ICombatable
 {
     public EnemySO enemySO;
     
-    // 전투 중에 바뀌는 스탯(많아지면 따로 묶어도 될 듯)
-    float curHP;
 
     private void Awake() {
-        curHP = enemySO.HP;
+        //curHP = enemySO.HP;
     }
 
     public void ApplyAttack() {

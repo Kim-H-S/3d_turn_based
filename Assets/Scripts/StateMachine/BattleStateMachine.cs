@@ -2,57 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PlayerStates { HitSlot, InputAction, }
-public enum EnemyStates {  }
 
-public class BattleStateMachine : MonoBehaviour
+public class BattleStateMachine<T> where T : Character
 {
-    public Player player;
-    public Enemy enemy;
+    public T owner;
 
-    private State<Player>[] playerStates;
-    private State<Enemy>[] enemyStates;
-    private State<Player> curPlayerState;
-    private State<Enemy> curEnemyState;
+    public State<T>[] states;
+    private State<T> curState;
 
-    private void Awake() {
-        // 플레이어 턴 상태
-        playerStates = new State<Player>[(int)System.Enum.GetValues(typeof(PlayerStates)).Length];
-        playerStates[(int)PlayerStates.HitSlot] = new HitSlot();
-        playerStates[(int)PlayerStates.InputAction] = new InputAction();
-
-        ChangePlayerState(PlayerStates.HitSlot);
-        
-        // 몬스터 턴 상태
-        enemyStates = new State<Enemy>[(int)System.Enum.GetValues(typeof(EnemyStates)).Length];
-        //enemyStates[0] = new 
-    }
-
-    private void Update() {
-        if(curPlayerState != null) {
-            curPlayerState.Excute(player);
+    public void Updated() {
+        if(curState != null) {
+            curState.Excute(owner);
         }
     }
 
-    private void ChangePlayerState(PlayerStates newState) {
-        if(playerStates[(int)newState] == null) return;
+    public void ChangeState(int index) {
+        if(states[index] == null) return;
 
-        if (curPlayerState != null) {
-            curPlayerState.Exit(player);
+        State<T> newState = states[index];
+
+        if (curState != null) {
+            curState.Exit(owner);
         }
 
-        curPlayerState = playerStates[(int)newState];
-        curPlayerState.Enter(player);
-    }
-
-    private void ChangeEnemyState(EnemyStates newState) {
-        if(enemyStates[(int)newState] == null) return;
-
-        if (curEnemyState != null) {
-            curEnemyState.Exit(enemy);
-        }
-
-        curEnemyState = enemyStates[(int)newState];
-        curEnemyState.Enter(enemy);
+        curState = newState;
+        curState.Enter(owner);
     }
 }
