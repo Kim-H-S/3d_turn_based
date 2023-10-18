@@ -41,7 +41,6 @@ public class MapManager
         Map = _mapGenerator.Map;
         selectablePos = new List<Pos> { new Pos(0, 0), new Pos(xLength - 1, 0), new Pos(0, yLength - 1), new Pos(xLength - 1, yLength - 1) };
     }
-
     public void DrawMap(Transform parent, int startPosX, int startPosY, int width, int height)
     {
         for (int i = 0; i < Map.GetLength(0); i++)
@@ -57,10 +56,9 @@ public class MapManager
             }
         }
     }
-
     public void LoadAllMapPrefabs()
     {
-        var gameObjects = Resources.LoadAll("Prefabs/Map");
+        var gameObjects = Resources.LoadAll("Prefabs/Location");
 
         foreach(GameObject gameObject in gameObjects) 
         {
@@ -151,5 +149,11 @@ public class MapManager
         PrevLocation = CurrentLocation;
 
         CurrentMap.SetActive(false);
+    }
+
+    public void EnterLobby()
+    {
+        CurrentMap  = GameObject.Instantiate((_mapList[LocationType.Lobby][0]));
+        CurrentMap.SetActive(true);
     }
 }

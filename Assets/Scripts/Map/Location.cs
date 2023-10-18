@@ -1,14 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-
-public enum LocationType
-{
-    WoodArea,
-    StoneArea,
-
-    EndPoint,
-}
-
 public class Location
 {
     public Location(Pos locationPos)

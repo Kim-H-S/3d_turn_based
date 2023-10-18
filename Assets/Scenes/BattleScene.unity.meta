@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/BattleScene.unity.meta
 guid: 553c43c4e4aa44b41b5280e1becb1c80
+========
+guid: dd7756ab938a95f45bdc8169132a24aa
+folderAsset: yes
+>>>>>>>> e23387354c05a2c2f98fc1aacb99df411f3c0586:Assets/Scriptable Objects/Objects.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

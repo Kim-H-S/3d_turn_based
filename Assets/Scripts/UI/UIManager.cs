@@ -1,19 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
+    [Header("Texts")]
+    public TextMeshPro textPlayerLevel;
+    public TextMeshPro textPlayerGold;
+
     [Header("Canvas")]
-    [SerializeField] public GameObject canvasMap;
+    public GameObject canvasMap;
+    public GameObject canvasDifficulty;    // Difficulty;난이도
+    public GameObject canvasGameClear;
+    public GameObject canvasGameOver;
 
-    [Header("Buttons")]
-    [SerializeField] public GameObject buttonMapOpen;
-    [SerializeField] public GameObject buttonMapClose;
-    // 셋팅 버튼
-
+    [Header("Windows")]
+    public GameObject windowSetting;
+    public GameObject windowLogin;
+    public GameObject windowEnemyInfo;
 
     private void Awake()
     {
