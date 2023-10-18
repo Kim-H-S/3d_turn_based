@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class RayCast : MonoBehaviour
 {
     private LayerMask layerMask_Enemy;
-
+    private bool toggle_EnemyInformation = false;
     void Start()
     {
         
@@ -24,35 +24,34 @@ public class RayCast : MonoBehaviour
         {
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out raycastHit, Mathf.Infinity, layerMask))
             {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * raycastHit.distance, Color.yellow);
-                Debug.Log("Did Hit");
+                //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * raycastHit.distance, Color.yellow);
+                //Debug.Log("Did Hit");
+
+                OnClick();
             }
             else
             {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-                Debug.Log("Did not Hit");
+                //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+                //Debug.Log("Did not Hit");
+
+                OnClick();
             }
         }
 
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnClick()
     {
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    Ray ray = new Ray(transform.position, transform.forward);
-        //    RaycastHit raycastHit;
+        if (toggle_EnemyInformation)
+        {
+            UIManager.Instance.enemyInformation.SetActive(true);
+        }
+        else
+        {
+            UIManager.Instance.enemyInformation.SetActive(false);
+        }
 
-        //    int layerMask = 1 << LayerMask.NameToLayer("Enemy");
-
-        //    //if (Physics.Raycast(ray, out raycastHit, 10, layerMask, QueryTriggerInteraction.Ignore))
-        //    if (Physics.Raycast(ray, out raycastHit, 10, layerMask))
-        //    {
-        //        print("레이");
-        //    }
-        //}
+        toggle_EnemyInformation = !toggle_EnemyInformation;
     }
-
 }

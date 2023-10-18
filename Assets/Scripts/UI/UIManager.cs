@@ -27,6 +27,9 @@ public class UIManager : MonoBehaviour
     public GameObject windowLogin;
     public GameObject windowEnemyInfo;
 
+    [Header("-")]
+    public GameObject enemyInformation;
+
     private void Awake()
     {
         Instance = this;
