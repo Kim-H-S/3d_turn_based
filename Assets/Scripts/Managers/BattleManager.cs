@@ -24,6 +24,7 @@ public class BattleManager : MonoBehaviour
     
     public Player player;
     public List<Enemy> enemy;
+    public Enemy curFocusedEnemy;
 
     public SlotMachine slotMachine;
     private int slotMachineValue;
@@ -34,5 +35,15 @@ public class BattleManager : MonoBehaviour
 
     void ChangeSlotMachineValue(int value) {
         slotMachineValue = value;
+    }
+
+    public bool SendDamage(float damage) {
+        if(curFocusedEnemy == null) {
+            return false;
+        }
+        else {
+            curFocusedEnemy.ApplyDamage(damage);
+            return true;
+        }
     }
 }

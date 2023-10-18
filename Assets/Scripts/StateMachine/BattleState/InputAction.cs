@@ -15,6 +15,14 @@ public class InputAction : PlayerTurn
         
 
         Debug.Log("인풋 대기 중");
+
+        // if 인풋(공격)
+        // SendDamage(Entity.ApplyAttack)
+
+        // else if 방어
+        // Entity.ApplyDefend();
+
+        // Idle 상태로 전환
     }
 
     public override void Exit(Player Entity)

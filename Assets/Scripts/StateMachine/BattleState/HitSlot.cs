@@ -15,7 +15,7 @@ public class HitSlot : PlayerTurn
         // 슬롯 머신 작동 감지
         Debug.Log("슬롯 눌러라");
 
-        //if(슬롯머신 값 > 000)
+        //if(슬롯머신 값 변경)
         Entity.battleStateMachine.ChangeState((int)PlayerState.InputAction);
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerTurn : State<Player>
 {
     public override void Enter(Player Entity) {
-
+        // 몬스터 Info 창 active true
     }
 
     public override void Excute(Player Entity) {
@@ -26,6 +26,6 @@ public class PlayerTurn : State<Player>
     }
 
     public override void Exit(Player Entity) {
-
+        // 몬스터 Info 창 active false
     }
 }
