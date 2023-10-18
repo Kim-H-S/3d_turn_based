@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class HitSlot : PlayerTurn
 {
+    private SlotMachine slotMachine;
+
     public override void Enter(Player Entity)
     {
         base.Enter(Entity);
-        // 슬롯 머신 Active true, 값 000
+        slotMachine = BattleManager.Instance.slotMachine;
+
+        slotMachine.gameObject.SetActive(true);
     }
 
     public override void Excute(Player Entity) {
         base.Excute(Entity);
-        // 슬롯 머신 작동 감지
-        Debug.Log("슬롯 눌러라");
 
-        //if(슬롯머신 값 변경)
-        Entity.battleStateMachine.ChangeState((int)PlayerState.InputAction);
+        // 슬롯 머신이 눌리고 1초 뒤, 결과 텍스트가 뜬 후로 바꿔도 될 듯
+        if(!slotMachine.gameObject.activeSelf) {
+            Entity.battleStateMachine.ChangeState((int)PlayerState.InputAction);
+        }
     }
 
     public override void Exit(Player Entity)
     {
         base.Exit(Entity);
-        // 슬롯 머신 Active false
+        //BattleManager.Instance.slotMachine.gameObject.SetActive(false);
     }
 }
