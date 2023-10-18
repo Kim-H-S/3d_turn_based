@@ -36,7 +36,6 @@ public class CombinationManager
         return possibleList;
     }
 
-
     public bool CheckRecipe(List<RecipeData> list)
     {
         bool isPossible = true;
@@ -57,5 +56,23 @@ public class CombinationManager
         }
 
         return isPossible;
+    }
+
+    public void Combination(RecipeSO recipes)
+    {
+        foreach(RecipeData data in recipes.requiredItems)
+        {
+            itemCount[data.itemSO.itemName] -= data.count;
+
+            for(int i =0; i< data.count; i++)
+            {
+                int index = GameManager.Instance.InventoryUI.FindIndexItemSO(data.itemSO);
+                GameManager.Instance.InventoryUI.RemoveItemFromInventory(index);
+            }
+        }
+        GameObject go = GameObject.Instantiate(recipes.combinationItem);
+        go.transform.SetParent(GameManager.Instance.transform);
+        GameManager.Instance.InventoryUI.AddItemToInventory(go.GetComponent<Item>());
+        // 인벤토리에 생성된 아이템을 넣어줌
     }
 }
