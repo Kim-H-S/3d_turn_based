@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7bd03f7f37f481d49b9e0d175293e4e3, type: 3}
-  m_Name: ItemWood
+  m_Name: ItemIron
   m_EditorClassIdentifier: 
-  itemName: Wood
-  itemInfo: Wood
-  icon: {fileID: 21300000, guid: 3c71ee2577be89a4dbcd5031fffcdfe5, type: 3}
+  itemName: Iron
+  itemInfo: Iron
+  icon: {fileID: 21300000, guid: 815637a8f0198084b9e6f47c8eacc86b, type: 3}

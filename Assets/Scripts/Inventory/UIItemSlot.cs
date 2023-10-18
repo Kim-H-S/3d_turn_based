@@ -1,18 +1,28 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using static UnityEditor.Progress;
 
-public class UIItemSlotTemp : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
+[Serializable]
+
+public class UIItemSlot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
     private Vector2 initialPosition;
     private Vector2 lastDragPosition;
-    public RectTransform limitZone;
+    private RectTransform limitZone;
+
+    private UIInventory inventory;
+    public Image icon;
+    
     
 
     private void Awake()
     {
+        inventory = GetComponentInParent<UIInventory>();
         limitZone = transform.parent.GetComponent<RectTransform>();
     }
     public void OnDrag(PointerEventData eventData)
@@ -33,8 +43,20 @@ public class UIItemSlotTemp : MonoBehaviour, IPointerDownHandler, IPointerUpHand
         if (!RectTransformUtility.RectangleContainsScreenPoint(limitZone, eventData.position))
         {
             //아이템을 인벤토리에서 꺼내서 바닥에버림 나중에 플레이어의 위치로 변경
-            GameManager.Instance.Inventory.RemoveItemFromInventory(transform.GetSiblingIndex(), Camera.main.ScreenToWorldPoint(lastDragPosition));
+            inventory.RemoveItemFromInventory(transform.GetSiblingIndex());
         }
         transform.position = initialPosition;
+    }
+
+    public void AddItemUI(ItemSO itemSO)
+    {
+        icon.sprite = itemSO.icon;
+        icon.gameObject.SetActive(true);
+    }
+
+    public void RemoveItemUI()
+    {
+        icon.sprite = null;
+        icon.gameObject.SetActive(false);
     }
 }
