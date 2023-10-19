@@ -118,7 +118,8 @@ public class MapManager
         if (Map[pos.Y, pos.X] == null) return;
 
         // 이동할수 있는 좌표가 맞는지 확인
-
+        
+        
 
         if (PrevLocation != null && pos.Y == PrevLocation.LocationPos.Y && pos.X == PrevLocation.LocationPos.X)
         {
@@ -151,8 +152,18 @@ public class MapManager
         }
 
         selectablePos = CurrentLocation.AdjLocations;
+        if(PrevMap != null) 
+        {
+            PrevMap.transform.SetParent(GameManager.Instance.Root);
+        }
+        
+        if (CurrentMap != null) 
+        {
+            CurrentMap.transform.SetParent(GameManager.Instance.Root);
+        }
         
         GameManager.Instance.Player.transform.position = CurrentMap.transform.GetChild(4).position;
+        GameManager.Instance.EnterBattleScene();
     }
 
     public void ExitMap()

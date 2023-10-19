@@ -8,11 +8,12 @@ public class Portal : MonoBehaviour
     private void Start()
     {
         MapUI = GameManager.Instance.MapUI;
-        SceneName = SceneManager.GetActiveScene().name;
     }
-  
+
+
     private void OnTriggerEnter(Collider other)
     {
+        SceneName = SceneManager.GetActiveScene().name;
         switch (SceneName)
         {
             case "Lobby Scene":
