@@ -5,10 +5,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
 
-public class InputAction : PlayerTurn
+public class InputBattleAction : PlayerTurn
 {
     UIPlayerAction uiAction;
-    public override void Enter(Player Entity)
+    public override void Enter(Player2 Entity)
     {
         base.Enter(Entity);
 
@@ -21,7 +21,7 @@ public class InputAction : PlayerTurn
 
     }
 
-    public override void Excute(Player Entity)
+    public override void Excute(Player2 Entity)
     {
         base.Excute(Entity);
 
@@ -34,7 +34,7 @@ public class InputAction : PlayerTurn
         }
     }
 
-    public override void Exit(Player Entity)
+    public override void Exit(Player2 Entity)
     {
         base.Exit(Entity);
 
@@ -44,7 +44,7 @@ public class InputAction : PlayerTurn
         BattleManager.Instance.FocusEnemy(null);
     }
 
-    void SelectAttack(Player player)
+    void SelectAttack(Player2 player)
     {
         if (BattleManager.Instance.SendDamage(player.GetAtk()))
         {
@@ -52,7 +52,7 @@ public class InputAction : PlayerTurn
         }
     }
 
-    void SelectDefence(Player player)
+    void SelectDefence(Player2 player)
     {
         player.battleStateMachine.ChangeState((int)PlayerStates.Idle);
     }

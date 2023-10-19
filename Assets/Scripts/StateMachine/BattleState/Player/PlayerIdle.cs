@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerIdle : PlayerTurn
 {
-    public override void Enter(Player Entity)
+    public override void Enter(Player2 Entity)
     {
         base.Enter(Entity);
         
@@ -13,7 +13,7 @@ public class PlayerIdle : PlayerTurn
         BattleManager.Instance.NextTurn();
     }
 
-    public override void Excute(Player Entity)
+    public override void Excute(Player2 Entity)
     {
         base.Excute(Entity);
         if(Entity.hasTurn) {

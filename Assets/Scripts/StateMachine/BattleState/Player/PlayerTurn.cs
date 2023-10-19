@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerTurn : State<Player>
+public class PlayerTurn : State<Player2>
 {
-    public override void Enter(Player Entity) {
+    public override void Enter(Player2 Entity) {
         // 몬스터 Info 창 active true
     }
 
-    public override void Excute(Player Entity) {
+    public override void Excute(Player2 Entity) {
         // 적 클릭
         if (Input.GetMouseButtonUp(0))
         {
@@ -26,7 +26,7 @@ public class PlayerTurn : State<Player>
         }
     }
 
-    public override void Exit(Player Entity) {
+    public override void Exit(Player2 Entity) {
         // 몬스터 Info 창 active false
     }
 }

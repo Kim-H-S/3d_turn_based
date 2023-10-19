@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIPlayerAction : MonoBehaviour
 {
-    Player player;
+    Player2 player;
     public Button AttackBtn; 
     public Button DefenceBtn;
 

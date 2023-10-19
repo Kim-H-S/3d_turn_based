@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : Character, ICombatable
+public class Player2 : Character, ICombatable
 {
     [SerializeField] private PlayerSO playerSO; 
 
-    public BattleStateMachine<Player> battleStateMachine;
+    public BattleStateMachine<Player2> battleStateMachine;
     
 
     private void Awake() {
-        battleStateMachine = new BattleStateMachine<Player>();
+        battleStateMachine = new BattleStateMachine<Player2>();
         battleStateMachine.owner = this;
 
-        battleStateMachine.states = new State<Player>[System.Enum.GetValues(typeof(PlayerStates)).Length];
+        battleStateMachine.states = new State<Player2>[System.Enum.GetValues(typeof(PlayerStates)).Length];
         battleStateMachine.states[(int)PlayerStates.HitSlot] = new HitSlot();
-        battleStateMachine.states[(int)PlayerStates.InputAction] = new InputAction();
+        battleStateMachine.states[(int)PlayerStates.InputAction] = new InputBattleAction();
         battleStateMachine.states[(int)PlayerStates.Idle] = new PlayerIdle();
 
         battleStateMachine.ChangeState((int)PlayerStates.HitSlot);

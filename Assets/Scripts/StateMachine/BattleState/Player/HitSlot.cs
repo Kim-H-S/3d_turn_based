@@ -6,7 +6,7 @@ public class HitSlot : PlayerTurn
 {
     private SlotMachine slotMachine;
 
-    public override void Enter(Player Entity)
+    public override void Enter(Player2 Entity)
     {
         base.Enter(Entity);
         slotMachine = BattleManager.Instance.uiSlotMachine;
@@ -14,7 +14,7 @@ public class HitSlot : PlayerTurn
         slotMachine.gameObject.SetActive(true);
     }
 
-    public override void Excute(Player Entity) {
+    public override void Excute(Player2 Entity) {
         base.Excute(Entity);
 
         // 슬롯 머신이 눌리고 1초 뒤, 결과 텍스트가 뜬 후로 바꿔도 될 듯
@@ -23,7 +23,7 @@ public class HitSlot : PlayerTurn
         }
     }
 
-    public override void Exit(Player Entity)
+    public override void Exit(Player2 Entity)
     {
         base.Exit(Entity);
         //BattleManager.Instance.slotMachine.gameObject.SetActive(false);

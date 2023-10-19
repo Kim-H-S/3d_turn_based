@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-
     public void OnMoveKeyInput(InputAction.CallbackContext context)
     {
 

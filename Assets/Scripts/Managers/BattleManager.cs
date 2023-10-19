@@ -25,7 +25,7 @@ public class BattleManager : MonoBehaviour
         }
     }
     
-    public Player player;
+    public Player2 player;
     public List<Enemy> enemies;
     private Enemy curFocusedEnemy;
 
