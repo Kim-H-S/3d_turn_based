@@ -11,6 +11,7 @@ public class InteractableObject :MonoBehaviour
     private void Awake()
     {
         info = new InteractableSO(objectBase);
+        
     }
 
     private void Update()
