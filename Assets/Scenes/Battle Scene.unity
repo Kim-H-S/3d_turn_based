@@ -800,6 +800,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas SlotMachine
       objectReference: {fileID: 0}
+    - target: {fileID: 5736220854019842696, guid: ef2af729de3a30c43a2c2692aef84877,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1169,10 +1174,95 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1612402941667869162, guid: bc37a9113df19664e899c1a62a07fb4e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612402941667869162, guid: bc37a9113df19664e899c1a62a07fb4e,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612402941667869162, guid: bc37a9113df19664e899c1a62a07fb4e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612402941667869162, guid: bc37a9113df19664e899c1a62a07fb4e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -260
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803839394745264943, guid: bc37a9113df19664e899c1a62a07fb4e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803839394745264943, guid: bc37a9113df19664e899c1a62a07fb4e,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803839394745264943, guid: bc37a9113df19664e899c1a62a07fb4e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817206441443086287, guid: bc37a9113df19664e899c1a62a07fb4e,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201681346340591732, guid: bc37a9113df19664e899c1a62a07fb4e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201681346340591732, guid: bc37a9113df19664e899c1a62a07fb4e,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201681346340591732, guid: bc37a9113df19664e899c1a62a07fb4e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201681346340591732, guid: bc37a9113df19664e899c1a62a07fb4e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -177.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8400302795349084653, guid: bc37a9113df19664e899c1a62a07fb4e,
         type: 3}
       propertyPath: m_Name
       value: Canvas SlotMachine2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8400302795349084653, guid: bc37a9113df19664e899c1a62a07fb4e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8967191255570318420, guid: bc37a9113df19664e899c1a62a07fb4e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8967191255570318420, guid: bc37a9113df19664e899c1a62a07fb4e,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8967191255570318420, guid: bc37a9113df19664e899c1a62a07fb4e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8967191255570318420, guid: bc37a9113df19664e899c1a62a07fb4e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -342.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
