@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class UIMapTemp : MonoBehaviour
 {
-    public bool isDraw = false;
    // UIMap의 크기가 Width 1000, Height 1080
     // Icon들의 크기가 Width 50, Height 50
     // Map 배열이 10 * 10 이라고
@@ -32,14 +31,11 @@ public class UIMapTemp : MonoBehaviour
 
     // 맵 배열을 UI로 그릴때 시작 좌표
     int startPosX;
-    int startPosY; 
-
-    public bool isSetting = false;
+    int startPosY;
+    
 
     public void OnEnable()
     {
-        if (isDraw) return;
-
         MapWidth = MapManager.Instance.Map.GetLength(1);
         MapHeight = MapManager.Instance.Map.GetLength(0);
         // 실제 맵의 크기 == 하나의 아이콘을 그리는데 필요한 공간 * 아이콘의 갯수 - (마지막 아이콘은 간격이 필요없음)
@@ -55,7 +51,6 @@ public class UIMapTemp : MonoBehaviour
         startPosY = -(UIMapHeight) / 2 + (IconHeight + IconPaddingHeight) / 2 + paddingHeight;
 
         MapManager.Instance.DrawMap(transform, startPosX, startPosY, IconWidth + IconPaddingWidth, IconHeight + IconPaddingHeight);
-        isDraw = true;  
     }
 
 }

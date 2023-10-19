@@ -6,6 +6,7 @@ public class ButtonNormal : MonoBehaviour
 {
     public void OnClick()
     {
-        Debug.Log("쉬움 난이도 선택했습니다.");
+        GameManager.Instance.EnterGame(1);
+        UIManager.Instance.canvasDifficulty.SetActive(false);
     }
 }

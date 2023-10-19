@@ -65,7 +65,7 @@ public class CombinationManager
             for(int i =0; i< data.count; i++)
             {
                 int index = GameManager.Instance.InventoryUI.FindIndexItemSO(data.itemSO);
-                GameManager.Instance.InventoryUI.RemoveItemFromInventory(index);
+                GameManager.Instance.InventoryUI.DestroyItemFromInventory(index);
             }
         }
         GameObject go = GameObject.Instantiate(recipes.combinationItem);
