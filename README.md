@@ -38,3 +38,21 @@ Framework : .Net 6.0
 - [기현빈 [팀원]](https://github.com/homebd) : 몬스터 패턴, 전투 시스템
 - [김형수 [팀원]](https://github.com/Kim-H-S) : UI/UX
 - [김규승 [팀원]](https://github.com/KimGyuseung) : 플레이어
+
+<br/>
+<br/>
+
+## 필수 구현사항
+
+<br/>
+<br/>
+
+## 선택 구현사항
+
+<br/>
+<br/>
+
+## Main Functions
+
+### Map
+MapGenerator [Wiki](https://github.com/Kim-H-S/3d_turn_based/wiki/MapGenerator)
