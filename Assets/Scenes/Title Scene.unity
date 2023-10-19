@@ -371,11 +371,14 @@ MonoBehaviour:
   textPlayerGold: {fileID: 0}
   canvasMap: {fileID: 0}
   canvasDifficulty: {fileID: 0}
+  canvasSlotMachine: {fileID: 0}
+  canvasSlotMachine2: {fileID: 0}
   canvasGameClear: {fileID: 0}
   canvasGameOver: {fileID: 0}
   windowSetting: {fileID: 1492619469}
   windowLogin: {fileID: 0}
   windowEnemyInfo: {fileID: 0}
+  enemyInformation: {fileID: 0}
 --- !u!4 &635596425
 Transform:
   m_ObjectHideFlags: 0
@@ -539,6 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: 
+  filename: save.txt
 --- !u!4 &925827388
 Transform:
   m_ObjectHideFlags: 0

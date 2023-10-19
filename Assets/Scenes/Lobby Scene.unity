@@ -152,11 +152,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a560b9e598485fd4a9fb388a1e582614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textPlayerLevel: {fileID: 0}
+  textPlayerGold: {fileID: 0}
   canvasMap: {fileID: 1088049214}
   canvasDifficulty: {fileID: 0}
+  canvasSlotMachine: {fileID: 0}
+  canvasSlotMachine2: {fileID: 0}
   canvasGameClear: {fileID: 0}
   canvasGameOver: {fileID: 0}
   windowSetting: {fileID: 1916250215}
+  windowLogin: {fileID: 0}
+  windowEnemyInfo: {fileID: 0}
+  enemyInformation: {fileID: 0}
 --- !u!4 &197742078
 Transform:
   m_ObjectHideFlags: 0
@@ -597,11 +604,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas Difficulty
-      objectReference: {fileID: 0}
-    - target: {fileID: 3182137238810039046, guid: 2e2faf540f36812448357dde100f7f52,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5954128288035828515, guid: 2e2faf540f36812448357dde100f7f52,
         type: 3}
