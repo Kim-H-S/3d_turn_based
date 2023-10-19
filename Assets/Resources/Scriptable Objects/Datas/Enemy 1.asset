@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Enemy 1
   m_EditorClassIdentifier: 
   <HP>k__BackingField: 20
-  <ATK>k__BackingField: 5
-  <DEF>k__BackingField: 5
+  <ATK>k__BackingField: 2
+  <DEF>k__BackingField: 2

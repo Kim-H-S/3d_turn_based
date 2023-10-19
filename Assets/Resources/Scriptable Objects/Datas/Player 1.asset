@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Player 1
   m_EditorClassIdentifier: 
   <HP>k__BackingField: 200
-  <ATK>k__BackingField: 20
-  <DEF>k__BackingField: 10
+  <ATK>k__BackingField: 10
+  <DEF>k__BackingField: 7
