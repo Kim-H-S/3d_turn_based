@@ -69,6 +69,7 @@ public class CombinationManager
             }
         }
         GameObject go = GameObject.Instantiate(recipes.combinationItem);
+        go.SetActive(false);
         go.transform.SetParent(GameManager.Instance.transform);
         GameManager.Instance.InventoryUI.AddItemToInventory(go.GetComponent<Item>());
         // 인벤토리에 생성된 아이템을 넣어줌
