@@ -1,40 +1,30 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class InteractableObject :MonoBehaviour
 {
     public InteractableSO objectBase;
-
+    public Canvas canvas;
     private InteractableSO info;
+
+    
 
 
     private void Awake()
     {
         info = new InteractableSO(objectBase);
-        
+        canvas.gameObject.SetActive(false);
+
+
     }
 
-    private void Update()
+    public void OnInteractUI()
     {
-        // 테스트용 레이캐스트
+        canvas.gameObject.SetActive(true);
+    }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (EventSystem.current.IsPointerOverGameObject())
-            {
-                return;
-            }
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider.gameObject == gameObject)
-                {
-                    Interact();
-                }
-            }
-        }
+    public void OffInteractUI()
+    {
+        canvas.gameObject.SetActive(false);
     }
     public void Interact()
     {

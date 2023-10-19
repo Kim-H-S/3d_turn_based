@@ -7,10 +7,6 @@ using UnityEngine.UI;
 public class Item : MonoBehaviour
 {
     public ItemSO itemSO;
-    private void Awake()
-    {
-    }
-
     private void Update()
     {
         // 테스트용 레이캐스트
