@@ -9,9 +9,8 @@ public class BattleStateMachine<T> where T : Character
 
     public State<T>[] states;
     private State<T> curState;
-
     public void Updated() {
-        if(curState != null) {
+        if(curState != null && owner.hasTurn) {
             curState.Excute(owner);
         }
     }

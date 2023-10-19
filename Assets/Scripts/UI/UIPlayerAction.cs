@@ -17,11 +17,11 @@ public class UIPlayerAction : MonoBehaviour
 
     void OnClickAttackButton() {
         player.ApplyAttack();
-        player.battleStateMachine.ChangeState((int)PlayerState.Idle);
+        player.battleStateMachine.ChangeState((int)PlayerStates.Idle);
     }
 
     void OnClickDefenceButton() {
         player.ApplyDefend();
-        player.battleStateMachine.ChangeState((int)PlayerState.Idle);
+        player.battleStateMachine.ChangeState((int)PlayerStates.Idle);
     }
 }

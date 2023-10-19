@@ -8,7 +8,7 @@ public class EnemyTurn : State<Enemy>
 
     }
 
-    public override void Excute(Enemy Entty) {
+    public override void Excute(Enemy Entity) {
         
     }
 

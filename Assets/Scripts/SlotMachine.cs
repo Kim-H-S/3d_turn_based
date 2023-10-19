@@ -10,9 +10,9 @@ public class SlotMachine : MonoBehaviour
     [SerializeField] private TextMeshProUGUI txtSecondReel;
     [SerializeField] private TextMeshProUGUI txtThirdReel;
 
-    private int firstReelResult = 0;
-    private int secondReelResult = 0;
-    private int thirdReelResult = 0;
+    private int firstReelResult;
+    private int secondReelResult;
+    private int thirdReelResult;
 
     [SerializeField] private Button button;
 
@@ -62,5 +62,13 @@ public class SlotMachine : MonoBehaviour
     public int ResultNumber()
     {
         return firstReelResult * 100 + secondReelResult * 10 + thirdReelResult;
+    }
+
+    private void OnEnable() {
+        firstReelResult = 0;
+        secondReelResult = 0;
+        thirdReelResult = 0;
+
+        button.interactable = true;
     }
 }
