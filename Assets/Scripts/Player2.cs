@@ -1,26 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player2 : Character, ICombatable
 {
-    [SerializeField] private PlayerSO playerSO; 
+    public PlayerSO playerSO; 
 
     public BattleStateMachine<Player2> battleStateMachine;
     
 
     private void Awake() {
+        hpBar = GetComponentInChildren<Slider>();
+
         battleStateMachine = new BattleStateMachine<Player2>();
         battleStateMachine.owner = this;
 
         battleStateMachine.states = new State<Player2>[System.Enum.GetValues(typeof(PlayerStates)).Length];
         battleStateMachine.states[(int)PlayerStates.HitSlot] = new HitSlot();
-        battleStateMachine.states[(int)PlayerStates.InputAction] = new InputBattleAction();
+        battleStateMachine.states[(int)PlayerStates.InputBattleAction] = new InputBattleAction();
         battleStateMachine.states[(int)PlayerStates.Idle] = new PlayerIdle();
 
         battleStateMachine.ChangeState((int)PlayerStates.HitSlot);
 
-        curHP = 100;
+        curHP = playerSO.HP;
     }
 
     public void ApplyAttack()
@@ -39,16 +42,29 @@ public class Player2 : Character, ICombatable
         def = 0;
     }
 
-    public void ApplyDamage(float damage) {
-        curHP -= damage - def;
+    public void ApplyDamage(float damage)
+    {
+        def -= damage;
+        float dmg = 0;
 
-        if(curHP <= 0) {
+        if (def < 0) {
+            dmg = -def;
+            def = 0;
+        }
+
+        curHP -= dmg;
+        ShowDamageUI(dmg);
+
+        hpBar.value = GetCurrentHP();
+
+
+        if (curHP <= 0) {
             // 사망
         }
     }
 
-    public float GetAtk()
+    public float GetCurrentHP()
     {
-        return atk;
+        return curHP / playerSO.HP;
     }
 }

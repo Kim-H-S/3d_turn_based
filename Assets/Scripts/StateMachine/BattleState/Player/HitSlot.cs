@@ -19,7 +19,7 @@ public class HitSlot : PlayerTurn
 
         // 슬롯 머신이 눌리고 1초 뒤, 결과 텍스트가 뜬 후로 바꿔도 될 듯
         if(!slotMachine.gameObject.activeSelf) {
-            Entity.battleStateMachine.ChangeState((int)PlayerStates.InputAction);
+            Entity.battleStateMachine.ChangeState((int)PlayerStates.InputBattleAction);
         }
     }
 

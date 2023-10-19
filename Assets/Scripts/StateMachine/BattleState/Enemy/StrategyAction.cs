@@ -8,16 +8,15 @@ public class StrategyAction : EnemyTurn
     {
         base.Enter(Entity);
 
+        Entity.ResetStat();
         ActOnStrategy(Entity);
     }
 
     void ActOnStrategy(Enemy Entity) {
-        switch(Entity.curAction) {
-            case EnemyAction.Idle:
-                Debug.Log("아무것도 안 함");
-                break;
+        switch(Entity.CurAction) {
             case EnemyAction.Attack:
                 Entity.ApplyAttack();
+                BattleManager.Instance.player.ApplyDamage(Entity.GetAtk());
                 break;
             case EnemyAction.Defence:
                 Entity.ApplyDefend();

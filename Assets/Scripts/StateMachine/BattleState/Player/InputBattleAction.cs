@@ -38,14 +38,19 @@ public class InputBattleAction : PlayerTurn
     {
         base.Exit(Entity);
 
+        Entity.ResetStat();
         uiAction.AttackBtn.onClick.RemoveListener(() => { SelectAttack(Entity); });
         uiAction.DefenceBtn.onClick.RemoveListener(() => { SelectDefence(Entity); });
         uiAction.gameObject.SetActive(false);
+        BattleManager.Instance.uiSlotResult.gameObject.SetActive(false);
         BattleManager.Instance.FocusEnemy(null);
     }
 
     void SelectAttack(Player2 player)
     {
+        // TODO: 여러번 클릭하면 계속 적용되지만 문제되지 않음
+        player.ApplyAttack();
+
         if (BattleManager.Instance.SendDamage(player.GetAtk()))
         {
             player.battleStateMachine.ChangeState((int)PlayerStates.Idle);

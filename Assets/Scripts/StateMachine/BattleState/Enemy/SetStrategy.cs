@@ -13,23 +13,23 @@ public class SetStrategy : EnemyTurn
 
     public void SetNextTurnAction(Enemy Entity)
     {
-        if(Entity.GetCurrentHP() >= 0.7f) {
-            Debug.Log($"{Entity.name}: 공격 예정");
-            Entity.curAction = EnemyAction.Attack;
+        if (Random.Range(0, 10) == 0)
+        {
+            Entity.SetCurAction(EnemyAction.Idle);
+        }
+        else if (Entity.GetCurrentHP() >= 0.7f) {
+            Entity.SetCurAction(EnemyAction.Attack);
         }
         else if(Entity.GetCurrentHP() >= 0.3f) {
             if(Random.Range(0, 2) == 0) {
-                Debug.Log($"{Entity.name}: 공격 예정");
-                Entity.curAction = EnemyAction.Attack;
+                Entity.SetCurAction(EnemyAction.Attack);
             }
             else {
-                Debug.Log($"{Entity.name}: 방어 예정");
-                Entity.curAction = EnemyAction.Defence;
+                Entity.SetCurAction(EnemyAction.Defence);
             }
         }
         else {
-            Debug.Log($"{Entity.name}: 공격 예정");
-            Entity.curAction = EnemyAction.Attack;
+            Entity.SetCurAction(EnemyAction.Attack);
         }
 
         Entity.battleStateMachine.ChangeState((int)EnemyStates.Idle);

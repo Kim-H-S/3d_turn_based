@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-enum PlayerStates { HitSlot, InputAction, Idle, }
+enum PlayerStates { HitSlot, InputBattleAction, Idle, }
 enum EnemyStates { Action, SetStrategy, Idle, }
 
 public class BattleManager : MonoBehaviour
@@ -31,7 +31,13 @@ public class BattleManager : MonoBehaviour
 
     [Header("UI")]
     public SlotMachine uiSlotMachine;
+    public UISlotResult uiSlotResult;
     public UIPlayerAction uiAction;
+    public UIEnemyInfo uiEnemyInfo;
+
+
+    [Header("Prefab")]
+    public GameObject uiDamage;
 
     private int enemyTurn;
     
@@ -50,12 +56,12 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public bool SendDamage(float pureDamage) {
+    public bool SendDamage(float damage) {
         if(curFocusedEnemy == null) {
             return false;
         }
         else {
-            curFocusedEnemy.ApplyDamage(pureDamage);
+            curFocusedEnemy.ApplyDamage(damage);
             return true;
         }
     }
@@ -76,6 +82,34 @@ public class BattleManager : MonoBehaviour
 
     public void FocusEnemy(Enemy enemy)
     {
-        curFocusedEnemy = enemy;
+        if(enemy == null || enemy == curFocusedEnemy)
+        {
+            UnfocusEnemy();
+        }
+        else
+        {
+            UnfocusEnemy();
+
+            curFocusedEnemy = enemy;
+            curFocusedEnemy.focusedLight.gameObject.SetActive(true);
+            uiEnemyInfo.gameObject.SetActive(true);
+            uiEnemyInfo.SetInfo(
+                name: enemy.enemySO.name,
+                curHP: enemy.GetCurrentHP() * enemy.enemySO.HP,
+                maxHP: enemy.enemySO.HP,
+                atk: enemy.enemySO.ATK,
+                def: enemy.enemySO.DEF
+                );
+        }
+    }
+
+    private void UnfocusEnemy()
+    {
+        if (curFocusedEnemy == null) return;
+
+        curFocusedEnemy.focusedLight.gameObject.SetActive(false);
+
+        uiEnemyInfo.gameObject.SetActive(false);
+        curFocusedEnemy = null;
     }
 }
