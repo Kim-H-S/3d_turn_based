@@ -19,6 +19,18 @@ public class Player : MonoBehaviour
 
     }
 
+    public void OnInteractObject(InputAction.CallbackContext context) 
+    {
+        if (Range.collingList.Count > 0)
+        {
+            Range.collingList[0].Interact();
+            if (Range.collingList[0] == null)
+            {
+                Range.collingList.RemoveAt(0);
+            }
+        } 
+    }
+
 
     private void Awake()
     {
@@ -44,7 +56,7 @@ public class Player : MonoBehaviour
     }
 
     [SerializeField] private Rigidbody   m_rigidbody;
-
+    public InteractableRange Range;
     //Movement
     [SerializeField] private float  m_moveSpeed;
     [SerializeField] private float  m_rotationSpeed;
