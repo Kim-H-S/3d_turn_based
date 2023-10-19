@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4c4892b514fffd45a00181c0d93fbfb, type: 3}
   m_Name: Player 1
   m_EditorClassIdentifier: 
-  <HP>k__BackingField: 0
-  <ATK>k__BackingField: 0
-  <DEF>k__BackingField: 0
+  <HP>k__BackingField: 200
+  <ATK>k__BackingField: 20
+  <DEF>k__BackingField: 10

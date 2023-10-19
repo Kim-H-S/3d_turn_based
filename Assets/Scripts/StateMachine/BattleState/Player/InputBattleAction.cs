@@ -38,9 +38,11 @@ public class InputBattleAction : PlayerTurn
     {
         base.Exit(Entity);
 
+        Entity.ResetStat();
         uiAction.AttackBtn.onClick.RemoveListener(() => { SelectAttack(Entity); });
         uiAction.DefenceBtn.onClick.RemoveListener(() => { SelectDefence(Entity); });
         uiAction.gameObject.SetActive(false);
+        BattleManager.Instance.uiSlotResult.gameObject.SetActive(false);
         BattleManager.Instance.FocusEnemy(null);
     }
 

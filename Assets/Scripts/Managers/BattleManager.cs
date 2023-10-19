@@ -31,8 +31,13 @@ public class BattleManager : MonoBehaviour
 
     [Header("UI")]
     public SlotMachine uiSlotMachine;
+    public UISlotResult uiSlotResult;
     public UIPlayerAction uiAction;
     public UIEnemyInfo uiEnemyInfo;
+
+
+    [Header("Prefab")]
+    public GameObject uiDamage;
 
     private int enemyTurn;
     
@@ -77,22 +82,34 @@ public class BattleManager : MonoBehaviour
 
     public void FocusEnemy(Enemy enemy)
     {
-        curFocusedEnemy = enemy;
-
-        if(curFocusedEnemy != null)
+        if(enemy == null || enemy == curFocusedEnemy)
         {
-            uiEnemyInfo.gameObject.SetActive(true);
+            UnfocusEnemy();
+        }
+        else
+        {
+            UnfocusEnemy();
 
+            curFocusedEnemy = enemy;
+            curFocusedEnemy.focusedLight.gameObject.SetActive(true);
+            uiEnemyInfo.gameObject.SetActive(true);
             uiEnemyInfo.SetInfo(
                 name: enemy.enemySO.name,
-                remainHp: enemy.GetCurrentHP(),
+                curHP: enemy.GetCurrentHP() * enemy.enemySO.HP,
+                maxHP: enemy.enemySO.HP,
                 atk: enemy.enemySO.ATK,
                 def: enemy.enemySO.DEF
                 );
         }
-        else
-        {
-            uiEnemyInfo.gameObject.SetActive(false);
-        }
+    }
+
+    private void UnfocusEnemy()
+    {
+        if (curFocusedEnemy == null) return;
+
+        curFocusedEnemy.focusedLight.gameObject.SetActive(false);
+
+        uiEnemyInfo.gameObject.SetActive(false);
+        curFocusedEnemy = null;
     }
 }

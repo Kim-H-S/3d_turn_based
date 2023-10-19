@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum EnemyAction { Idle, Attack, Defence }
 
@@ -8,10 +7,17 @@ public class Enemy : Character, ICombatable
 {
     public EnemySO enemySO;
     public BattleStateMachine<Enemy> battleStateMachine;
-    public EnemyAction curAction;
+
+    public EnemyAction CurAction { get; private set; }
+
+    public Light focusedLight;
+    [SerializeField] private UIEnemyAction uiEnemyAction;
     
 
-    private void Awake() {
+    private void Awake()
+    {
+        hpBar = GetComponentInChildren<Slider>();
+
         battleStateMachine = new BattleStateMachine<Enemy>();
         battleStateMachine.owner = this;
 
@@ -22,9 +28,15 @@ public class Enemy : Character, ICombatable
 
         curHP = enemySO.HP;
 
-        curAction = EnemyAction.Idle;
+        CurAction = EnemyAction.Idle;
 
         battleStateMachine.ChangeState((int)EnemyStates.Idle);
+    }
+
+    public void SetCurAction(EnemyAction newAction)
+    {
+        CurAction = newAction;
+        uiEnemyAction.Updated(CurAction);
     }
 
     public void ApplyAttack() {
@@ -43,10 +55,17 @@ public class Enemy : Character, ICombatable
     }
 
     public void ApplyDamage(float damage) {
-        curHP -= damage - def;
+        def -= damage;
 
-        if(curHP <= 0) {
-            // 사망
+        float dmg = def < 0 ? -def : 0;
+
+        curHP -= dmg;
+        ShowDamageUI(dmg);
+
+        hpBar.value = GetCurrentHP();
+
+        if (curHP <= 0) {
+            gameObject.SetActive(false);
         }
     }
 
