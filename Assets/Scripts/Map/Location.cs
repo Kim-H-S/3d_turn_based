@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Location
 {
+    public GameObject Icon;
     public Location(Pos locationPos)
     {
         LocationPos = locationPos;
@@ -15,11 +16,11 @@ public class Location
 
     public void DrawLocationIcon(Transform parent, Vector2 position)
     {
-        GameObject go = GameObject.Instantiate(MapManager.Instance._iconList[LocationType], parent);
-        if (go != null)
+        Icon = GameObject.Instantiate(MapManager.Instance._iconList[LocationType], parent);
+        if (Icon != null)
         {
-            go.transform.localPosition = (Vector3)position;
-            go.GetComponent<UIMapIconTemp>().Init(this);
+            Icon.transform.localPosition = (Vector3)position;
+            Icon.GetComponent<UIMapIconTemp>().Init(this);
         }
         
     }

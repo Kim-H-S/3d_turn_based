@@ -1,17 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     public static GameManager Instance { get { return _instance; } }
 
-    public Inventory Inventory = new Inventory();
-
-    public Transform InventoryUI;
+    public UIInventory InventoryUI;
 
     public GameObject MapUI;
+
+    public GameObject Player;
+
+    public Camera main;
+
+    Vector3 cameraPosOffset = new Vector3(0, 5, -5);
+    Quaternion cameraRotOffset = Quaternion.Euler(30,0,0);
 
     private void Awake()
     {
@@ -24,13 +30,44 @@ public class GameManager : MonoBehaviour
         GameInit();
     }
 
+    private void Update()
+    {
+        ChasingCameraToPlayer();
+    }
+
+    public void ChasingCameraToPlayer()
+    {
+        if (Player == null) return;
+
+        if (main == null)
+        {
+            main = Camera.main;
+        }
+        main.transform.position = Player.transform.position + cameraPosOffset;
+        main.transform.rotation = cameraRotOffset;
+    }
+
     public void GameInit()
     {
         MapManager.Instance.EnterLobby();
-        Transform tempPos = MapManager.Instance.CurrentMap.transform.GetChild(4).transform;
-        Camera.main.transform.position = tempPos.position + new Vector3(0, 10, 0);
-        Camera.main.transform.rotation = Quaternion.Euler(45, 0, 0);
-        MapManager.Instance.GenerateNewMap(4, 4);
+    } 
+
+    public void EnterGame(int i)
+    {
+        if ( i == 1) 
+        {
+            MapManager.Instance.GenerateNewMap(Random.Range(3,6), Random.Range(3,6));
+        }
+
+        else
+        {
+            MapManager.Instance.GenerateNewMap(Random.Range(6,11), Random.Range(6,11));
+        }
+
+        MapUI.SetActive(true);
+
+        
+ 
     }
 
 }
