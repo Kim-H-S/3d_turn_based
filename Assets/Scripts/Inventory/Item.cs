@@ -1,40 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
+
 
 public class Item : MonoBehaviour
 {
     public ItemSO itemSO;
-    private void Update()
+    public Canvas canvas;
+
+
+    private void Awake()
     {
-        // 테스트용 레이캐스트
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (EventSystem.current.IsPointerOverGameObject())
-            {
-                return;
-            }
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray,out hit))
-            {
-                if(hit.collider.gameObject == gameObject)
-                {
-                    click();
-                }
-            }
-        }
+        canvas.gameObject.SetActive(false);
     }
-
-    public void click()
+    public void PickUp()
     {
         if (GameManager.Instance.InventoryUI.AddItemToInventory(this))
         {
             gameObject.SetActive(false);
         }
+    }
+
+    public void OnInteractUI()
+    {
+        canvas.gameObject.SetActive(true);
+    }
+
+    public void OffInteractUI()
+    {
+        canvas.gameObject.SetActive(false);
     }
 }

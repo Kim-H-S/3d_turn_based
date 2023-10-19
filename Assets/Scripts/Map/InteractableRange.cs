@@ -4,30 +4,45 @@ using UnityEngine;
 
 public class InteractableRange : MonoBehaviour
 {
-    public List<InteractableObject> collingList {get; private set;} 
+    public List<InteractableObject> colldingList {get; private set;}
+    public List<Item> colldingItemList { get; private set; }
     private void Awake()
     {
-        collingList = new List<InteractableObject>();
+        colldingList = new List<InteractableObject>();
+        colldingItemList = new List<Item>();    
+
     }
 
     private void OnTriggerEnter(Collider other)
-    {    
+    {           
         InteractableObject io = other.GetComponent<InteractableObject>();
+        Item item = other.GetComponent<Item>();
         if (io != null)
         {
-            collingList.Add(io);
+            colldingList.Add(io);
             io.OnInteractUI();
 
+        }
+        else if(item != null)
+        {
+            colldingItemList.Add(item);
+            item.OnInteractUI();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        InteractableObject io = other.GetComponent<InteractableObject>();        
+        InteractableObject io = other.GetComponent<InteractableObject>();
+        Item item = other.GetComponent<Item>();
         if (io != null)
         {
-            collingList.Remove(io);
+            colldingList.Remove(io);
             io.OffInteractUI();
+        }
+        else if (item != null) 
+        {
+            colldingItemList.Remove(item);
+            item.OffInteractUI();
         }
     }
 }

@@ -52,8 +52,8 @@ public class UIMapIconTemp : MonoBehaviour
         }
         else
         {
-            MapManager.Instance.EnterMap(locationInfo.LocationPos);
             transform.parent.parent.gameObject.SetActive(false);
+            MapManager.Instance.EnterMap(locationInfo.LocationPos);
         }
     }
 

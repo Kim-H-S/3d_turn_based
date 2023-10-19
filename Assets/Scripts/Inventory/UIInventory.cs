@@ -79,7 +79,7 @@ public class UIInventory : MonoBehaviour
 
         UICombination.UpdateUICombination();
 
-        item.transform.SetParent(GameManager.Instance.transform);
+        item.transform.SetParent(GameManager.Instance.Root);
         
 
         return true;
@@ -114,7 +114,7 @@ public class UIInventory : MonoBehaviour
         inventorySlot[index].RemoveItemUI();
 
         item.gameObject.SetActive(true);
-        item.transform.position = GameManager.Instance.Player.transform.position;
+        item.transform.position = GameManager.Instance.Player.transform.position + new Vector3(0,2,0);
         
         RemoveFromDictionary(item);
         UICombination.UpdateUICombination();
