@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2002767056567010665}
   - component: {fileID: 1994141589070658859}
   - component: {fileID: 1983968332123103091}
-  - component: {fileID: 1961384008589406959}
   - component: {fileID: 7447675792830515975}
+  - component: {fileID: 1876416165019188822}
   m_Layer: 0
   m_Name: IronSheet
   m_TagString: Untagged
@@ -85,8 +85,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1961384008589406959
-MeshCollider:
+--- !u!114 &7447675792830515975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007852513019992953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47aa7b6e728134d4290b88cdcd53c92d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectBase: {fileID: 11400000, guid: 5157105e9b4432b488d89b063ef65572, type: 2}
+--- !u!65 &1876416165019188822
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -103,20 +116,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43916623448575172, guid: 41e54926f1a411342b20b8cfc7f86894, type: 2}
---- !u!114 &7447675792830515975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2007852513019992953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47aa7b6e728134d4290b88cdcd53c92d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectBase: {fileID: 11400000, guid: 5157105e9b4432b488d89b063ef65572, type: 2}
+  serializedVersion: 3
+  m_Size: {x: 1.096019, y: 0.20500581, z: 2.6278496}
+  m_Center: {x: 0.0088407695, y: 0.059544586, z: -0.0031716824}
