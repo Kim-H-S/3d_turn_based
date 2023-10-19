@@ -79,7 +79,7 @@ public class UIInventory : MonoBehaviour
 
         UICombination.UpdateUICombination();
 
-        item.transform.SetParent(GameManager.Instance.transform);
+        item.transform.SetParent(GameManager.Instance.Root);
         
 
         return true;

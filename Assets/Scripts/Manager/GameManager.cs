@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     public static GameManager Instance { get { return _instance; } }
+
+    public Transform Root;
 
     public UIInventory InventoryUI;
 
@@ -63,8 +66,24 @@ public class GameManager : MonoBehaviour
 
         MapUI.SetActive(true);
 
-        
- 
     }
 
+    public void EnterBattleScene()
+    {
+        Root.gameObject.SetActive(false);
+        SceneManager.LoadScene("Battle Test Scene");
+    }
+
+    public void ExitBattleScene()
+    {
+        Root.gameObject.SetActive(true);
+        SceneManager.sceneLoaded += WaitSceneLoad;
+        SceneManager.LoadScene("Game Scene");
+    }
+
+    public void WaitSceneLoad(Scene scene, LoadSceneMode mode)
+    {
+        Root.gameObject.SetActive(true);
+        SceneManager.sceneLoaded -= WaitSceneLoad;
+    }
 }
