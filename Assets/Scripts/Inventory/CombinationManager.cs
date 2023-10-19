@@ -18,11 +18,12 @@ public class CombinationManager
     public void LoadAllRecipe()
     {
         Recipes = Resources.LoadAll<RecipeSO>("Scriptable Objects/Objects/Recipe");
-        itemCount = GameManager.Instance.InventoryUI.itemCount;
+        
     }
 
     public List<RecipeSO> FindPossibleRecipe()
     {
+        itemCount = GameManager.Instance.InventoryUI.itemCount;
         List<RecipeSO> possibleList = new List<RecipeSO>();
 
         foreach (RecipeSO recipe in Recipes) 

@@ -30,7 +30,6 @@ public class InteractableObject :MonoBehaviour
     {
         if (info.interactionTime > 0)
         {
-            Debug.Log(info.interactionTime);
             info.interactionTime -= 1;
 
             if (info.interactionTime <= 0) 

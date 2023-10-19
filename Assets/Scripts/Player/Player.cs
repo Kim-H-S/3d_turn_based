@@ -21,16 +21,25 @@ public class Player : MonoBehaviour
 
     public void OnInteractObject(InputAction.CallbackContext context) 
     {
-        if (Range.collingList.Count > 0)
+        if (Range.colldingList.Count > 0)
         {
-            Range.collingList[0].Interact();
-            if (Range.collingList[0] == null)
+            Range.colldingList[0].Interact();
+            if (Range.colldingList[0] == null)
             {
-                Range.collingList.RemoveAt(0);
+                Range.colldingList.RemoveAt(0);
             }
         } 
     }
 
+    public void OnPickUpItem(InputAction.CallbackContext context)
+    {
+        if (Range.colldingItemList.Count > 0)
+        {
+            Range.colldingItemList[0].PickUp();    
+            Range.colldingItemList.RemoveAt(0);
+            
+        }
+    }
 
     private void Awake()
     {
@@ -53,9 +62,15 @@ public class Player : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(0.0f, m_direction.x * m_rotationSpeed * Time.fixedDeltaTime, 0.0f) * transform.localRotation;
 
+        if (m_body.localPosition != Vector3.zero)
+        {
+            m_body.localPosition = Vector3.zero;
+        }
+
     }
 
     [SerializeField] private Rigidbody   m_rigidbody;
+    [SerializeField] private Transform m_body;
     public InteractableRange Range;
     //Movement
     [SerializeField] private float  m_moveSpeed;
