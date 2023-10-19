@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d3287db98651f449b7a60d7e2109ca0, type: 3}
-  m_Name: InteractableIronSheet
+  m_Script: {fileID: 11500000, guid: b4acea944f96e904dbd9f3e5e431c69e, type: 3}
+  m_Name: DropItemInteractableData
   m_EditorClassIdentifier: 
-  type: 0
-  objectName: IronSHeet
-  interactionTime: 2
-  dropItemLists:
-  - {fileID: 2007852513019992953, guid: d1b28c9028789ff49be7664464261ef2, type: 3}
+  type: 1

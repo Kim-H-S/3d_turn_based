@@ -4,41 +4,21 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ItemTemp : MonoBehaviour
+public class ItemTemp : InteractableObject
 {
+
     public ItemSO item;
-    private void Awake()
+
+    public override void Interact()
     {
-    }
-
-    private void Update()
-    {
-        // 테스트용 레이캐스트
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (EventSystem.current.IsPointerOverGameObject())
-            {
-                return;
-            }
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray,out hit))
-            {
-                if(hit.collider.gameObject == gameObject)
-                {
-                    click();
-                }
-            }
-        }
+        click();
     }
 
     public void click()
     {
-        if (GameManager.Instance.Inventory.AddItemToInventory(gameObject))
+        if (GameManager.Instance.Inventory.AddItemToInventory(item))
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }

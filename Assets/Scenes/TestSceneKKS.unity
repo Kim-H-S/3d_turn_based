@@ -123,6 +123,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &337975287 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6800407955073638443, guid: ff85428070533034c930810746b3d761,
+    type: 3}
+  m_PrefabInstance: {fileID: 1734814375}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 412338f419b78b443a27d3435f4111fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &438619925
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,12 +654,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!54 &915804404 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 2848565465239244956, guid: ff85428070533034c930810746b3d761,
-    type: 3}
-  m_PrefabInstance: {fileID: 1734814375}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1062544293 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7106373092853972754, guid: d20050b9395fb364da219d26fdb7c50c,
@@ -869,7 +875,7 @@ PrefabInstance:
     - target: {fileID: 1662618878447436609, guid: ff85428070533034c930810746b3d761,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.23
       objectReference: {fileID: 0}
     - target: {fileID: 1662618878447436609, guid: ff85428070533034c930810746b3d761,
         type: 3}
@@ -911,6 +917,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2832415283167719601, guid: ff85428070533034c930810746b3d761,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.0000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2832415283167719601, guid: ff85428070533034c930810746b3d761,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
     - target: {fileID: 2848565465239244956, guid: ff85428070533034c930810746b3d761,
         type: 3}
       propertyPath: m_Constraints
@@ -918,18 +934,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4390002580011559276, guid: ff85428070533034c930810746b3d761,
         type: 3}
-      propertyPath: m_moveSpeed
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 4390002580011559276, guid: ff85428070533034c930810746b3d761,
-        type: 3}
-      propertyPath: m_rigidbody
+      propertyPath: m_interactableObserver
       value: 
-      objectReference: {fileID: 915804404}
-    - target: {fileID: 4390002580011559276, guid: ff85428070533034c930810746b3d761,
+      objectReference: {fileID: 337975287}
+    - target: {fileID: 6800407955073638443, guid: ff85428070533034c930810746b3d761,
         type: 3}
-      propertyPath: m_rotationSpeed
-      value: 100
+      propertyPath: m_detectionRange
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7722229480316197483, guid: ff85428070533034c930810746b3d761,
         type: 3}

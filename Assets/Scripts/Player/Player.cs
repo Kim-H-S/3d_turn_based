@@ -20,11 +20,27 @@ public class Player : MonoBehaviour
 
     }
 
+    public void OnInteractionKeyInput(InputAction.CallbackContext context)
+    {
+
+        if(context.phase == InputActionPhase.Started)
+        {
+            var interactableObjectScript = m_interactableObserver.NearestInteractableObjectScript;
+            if(interactableObjectScript != null)
+            {
+                interactableObjectScript.Interact();
+            }
+        }
+
+    }
+
 
     private void Awake()
     {
 
         Debug.Assert(m_rigidbody != null);
+        Debug.Assert(m_animator != null);
+        Debug.Assert(m_interactableObserver != null);
 
     }
 
@@ -32,7 +48,7 @@ public class Player : MonoBehaviour
     private void Move(Vector2 direction)
     {
         m_direction = direction;
-        m_animator.SetFloat("MoveSpeed", m_direction.magnitude);
+        m_animator.SetFloat("MoveSpeed", m_direction.y);
     }
 
     private void FixedUpdate()
@@ -54,5 +70,9 @@ public class Player : MonoBehaviour
 
     //Animation
     [SerializeField] Animator m_animator;
+
+
+    //Interactive
+    [SerializeField] InteractableObjectObserver m_interactableObserver;
 
 }

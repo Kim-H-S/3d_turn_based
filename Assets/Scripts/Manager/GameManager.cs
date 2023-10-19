@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject MapUI;
 
+
+    public ResourceRepository ResourceRepository = new ResourceRepository();
+
     private void Awake()
     {
         _instance = this;

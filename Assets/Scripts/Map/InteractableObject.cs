@@ -3,56 +3,49 @@ using UnityEngine.EventSystems;
 
 public class InteractableObject :MonoBehaviour
 {
-    public InteractableSO objectBase;
-
-    private InteractableSO info;
+    public InteractableSO info;
 
 
     private void Awake()
     {
-        info = new InteractableSO(objectBase);
+
+
+        GameManager.Instance.ResourceRepository.InteractableObjectScriptList.Add(this);
+
     }
 
-    private void Update()
+    public virtual void Interact()
     {
-        // 테스트용 레이캐스트
 
-        if (Input.GetMouseButtonDown(0))
+        if(info is GatheringInteractableSO)
         {
-            if (EventSystem.current.IsPointerOverGameObject())
-            {
-                return;
-            }
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
+            var gatheringSO = info as GatheringInteractableSO;
+
+            if (gatheringSO.interactionTime > 0)
             {
-                if (hit.collider.gameObject == gameObject)
+                Debug.Log(gatheringSO.interactionTime);
+                gatheringSO.interactionTime -= 1;
+
+                if (gatheringSO.interactionTime <= 0)
                 {
-                    Interact();
+                    DropItem();
                 }
             }
-        }
-    }
-    public void Interact()
-    {
-        if (info.interactionTime > 0)
-        {
-            Debug.Log(info.interactionTime);
-            info.interactionTime -= 1;
 
-            if (info.interactionTime <= 0) 
-            {
-                DropItem();
-            }
         }
+        
     }
 
     public void DropItem()
     {
-        int index = Random.Range(0, info.dropItemLists.Count);
-        Instantiate(info.dropItemLists[index], transform.position + new Vector3(0,1,0), Quaternion.identity, MapManager.Instance.CurrentMap.transform);
+
+        var gatheringSO = info as GatheringInteractableSO;
+
+        int index = Random.Range(0, gatheringSO.dropItemLists.Count);
+        Instantiate(gatheringSO.dropItemLists[index], transform.position + new Vector3(0,1,0), Quaternion.identity, MapManager.Instance.CurrentMap.transform);
         Destroy(gameObject);
+
     }
+
 }
