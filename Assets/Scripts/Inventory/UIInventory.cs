@@ -85,6 +85,24 @@ public class UIInventory : MonoBehaviour
         return true;
     }
 
+    public void DestroyItemFromInventory(int index)
+    {
+        if (itemInSlot[index] == null) return;
+
+        Item item = itemInSlot[index];
+        
+        itemInSlot[index] = null;
+
+        EmptySlot.Add(index);
+        inventorySlot[index].RemoveItemUI();
+
+        item.gameObject.SetActive(true);
+        item.transform.position = GameManager.Instance.Player.transform.position;
+
+        RemoveFromDictionary(item);
+        Destroy(item.gameObject);
+        UICombination.UpdateUICombination();
+    }
     public void RemoveItemFromInventory(int index) 
     {
         if (itemInSlot[index] == null) return;
@@ -96,7 +114,8 @@ public class UIInventory : MonoBehaviour
         inventorySlot[index].RemoveItemUI();
 
         item.gameObject.SetActive(true);
-        // 아이템의 위치를 플레이어의 위치로 변경해줘야됨 (드랍)
+        item.transform.position = GameManager.Instance.Player.transform.position;
+        
         RemoveFromDictionary(item);
         UICombination.UpdateUICombination();
     }

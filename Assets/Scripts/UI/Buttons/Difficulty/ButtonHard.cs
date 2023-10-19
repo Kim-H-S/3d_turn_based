@@ -6,6 +6,7 @@ public class ButtonHard : MonoBehaviour
 {
     public void OnClick()
     {
-        Debug.Log("어려움 난이도 선택했습니다.");
+        GameManager.Instance.EnterGame(2);
+        UIManager.Instance.canvasDifficulty.SetActive(false);
     }
 }

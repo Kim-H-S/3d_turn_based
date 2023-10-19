@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEditor.PlayerSettings;
 
 public class UIMapIconTemp : MonoBehaviour
 {
@@ -40,7 +42,25 @@ public class UIMapIconTemp : MonoBehaviour
     }
     private void OpenMap()
     {
-        MapManager.Instance.EnterMap(locationInfo.LocationPos);
-        transform.parent.gameObject.SetActive(false);
+        if (!MapManager.Instance.selectablePos.Contains(locationInfo.LocationPos))
+        {
+            return;
+        }
+        if (SceneManager.GetActiveScene().name == "Lobby Scene")
+        {
+            SceneManager.sceneLoaded += WaitSceneLoad;
+            SceneManager.LoadScene("Game Scene");
+        }
+        else
+        {
+            MapManager.Instance.EnterMap(locationInfo.LocationPos);
+            transform.parent.parent.gameObject.SetActive(false);
+        }
+    }
+
+    public void WaitSceneLoad(Scene scene, LoadSceneMode mode)
+    {
+        OpenMap();
+        SceneManager.sceneLoaded -= WaitSceneLoad;
     }
 }

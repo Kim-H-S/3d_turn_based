@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Security;
 using UnityEngine;
 
 public class MapManager
@@ -35,11 +36,33 @@ public class MapManager
     private Dictionary<LocationType, List<GameObject>> _mapList = new Dictionary<LocationType, List<GameObject>>();
     public Dictionary<LocationType, GameObject> _iconList = new Dictionary<LocationType, GameObject>();
 
+
+    bool isDrawed;
+
     public void GenerateNewMap(int xLength, int yLength)
     {
+        ClearMap();
         _mapGenerator.Init(xLength, yLength);
         Map = _mapGenerator.Map;
         selectablePos = new List<Pos> { new Pos(0, 0), new Pos(xLength - 1, 0), new Pos(0, yLength - 1), new Pos(xLength - 1, yLength - 1) };
+        
+    }
+
+    public void ClearMap()
+    {
+        if (Map == null ) return;
+        
+        isDrawed = false;
+        for (int i =0; i< Map.GetLength(0); i++)
+        {
+            for(int j =0; j< Map.GetLength(1); j++)
+            {
+                if (Map[i,j] != null )
+                {
+                    GameObject.Destroy(Map[i, j].Icon);
+                }
+            }
+        }
     }
     public void DrawMap(Transform parent, int startPosX, int startPosY, int width, int height)
     {
@@ -55,6 +78,8 @@ public class MapManager
                 }
             }
         }
+
+        isDrawed = true;
     }
     public void LoadAllMapPrefabs()
     {
@@ -95,11 +120,6 @@ public class MapManager
 
         // 이동할수 있는 좌표가 맞는지 확인
 
-        if (!selectablePos.Contains(pos))
-        {
-            return;
-        }
-
 
         if (PrevLocation != null && pos.Y == PrevLocation.LocationPos.Y && pos.X == PrevLocation.LocationPos.X)
         {
@@ -131,9 +151,9 @@ public class MapManager
             CurrentMap = GameObject.Instantiate(_mapList[type][randInt]);
         }
 
-        // 임시로 카메라를 PlayerSpawnPoint로 이동 맵의 4번째 자식오브젝트(PlayerSpawnPoint)로 이동
         selectablePos = CurrentLocation.AdjLocations;
-        Camera.main.transform.position = CurrentMap.transform.GetChild(4).position;
+        
+        GameManager.Instance.Player.transform.position = CurrentMap.transform.GetChild(4).position;
     }
 
     public void ExitMap()
