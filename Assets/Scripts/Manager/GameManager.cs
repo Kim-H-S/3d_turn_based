@@ -53,12 +53,12 @@ public class GameManager : MonoBehaviour
     {
         if ( i == 1) 
         {
-            MapManager.Instance.GenerateNewMap(Random.Range(3,6), Random.Range(3,6));
+            MapManager.Instance.GenerateNewMap(Random.Range(3,5), Random.Range(3,6));
         }
 
         else
         {
-            MapManager.Instance.GenerateNewMap(Random.Range(6,11), Random.Range(6,11));
+            MapManager.Instance.GenerateNewMap(Random.Range(7,9), Random.Range(6,9));
         }
 
         MapUI.SetActive(true);

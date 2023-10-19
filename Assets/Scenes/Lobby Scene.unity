@@ -1335,26 +1335,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2848565465239244956, guid: ff85428070533034c930810746b3d761,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 4390002580011559276, guid: ff85428070533034c930810746b3d761,
-        type: 3}
-      propertyPath: m_moveSpeed
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 4390002580011559276, guid: ff85428070533034c930810746b3d761,
-        type: 3}
-      propertyPath: m_rigidbody
-      value: 
-      objectReference: {fileID: 2106525799}
-    - target: {fileID: 4390002580011559276, guid: ff85428070533034c930810746b3d761,
-        type: 3}
-      propertyPath: m_rotationSpeed
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 7722229480316197483, guid: ff85428070533034c930810746b3d761,
         type: 3}
       propertyPath: m_Name
@@ -1365,12 +1345,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff85428070533034c930810746b3d761, type: 3}
---- !u!54 &2106525799 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 2848565465239244956, guid: ff85428070533034c930810746b3d761,
-    type: 3}
-  m_PrefabInstance: {fileID: 2106525798}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2106525800 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7722229480316197483, guid: ff85428070533034c930810746b3d761,
