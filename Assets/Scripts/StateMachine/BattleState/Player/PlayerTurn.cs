@@ -20,7 +20,8 @@ public class PlayerTurn : State<Player>
             {
                 GameObject go = raycastHit.collider.gameObject;
 
-                Debug.Log($"몬스터 이름: {go.name}");    
+                Enemy enemy = go.GetComponent<Enemy>();
+                BattleManager.Instance.FocusEnemy(enemy);
             }
         }
     }

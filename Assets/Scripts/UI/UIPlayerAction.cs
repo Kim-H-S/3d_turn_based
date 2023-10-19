@@ -6,22 +6,34 @@ using UnityEngine.UI;
 public class UIPlayerAction : MonoBehaviour
 {
     Player player;
-    [SerializeField] private Button AttackBtn; 
-    [SerializeField] private Button DefenceBtn; 
+    public Button AttackBtn; 
+    public Button DefenceBtn;
+
+    Color UnseletedAlphaValue = new Color(1, 1, 1, 1);
+    Color SeletedAlphaValue = new Color(1, 1, 1, 0.6f);
 
     private void Awake() {
         player = BattleManager.Instance.player;
-        AttackBtn.onClick.AddListener(OnClickAttackButton);
-        DefenceBtn.onClick.AddListener(OnClickDefenceButton);
+
+        AttackBtn.onClick.AddListener(() => { ToggleAlphaValueButton(AttackBtn); });
+        DefenceBtn.onClick.AddListener(() => { ToggleAlphaValueButton(DefenceBtn); });
     }
 
-    void OnClickAttackButton() {
-        player.ApplyAttack();
-        player.battleStateMachine.ChangeState((int)PlayerStates.Idle);
+    void ToggleAlphaValueButton(Button btn)
+    {
+        if(btn.image.color == UnseletedAlphaValue)
+        {
+            btn.image.color = SeletedAlphaValue;
+        }
+        else
+        {
+            btn.image.color = UnseletedAlphaValue;
+        }
     }
 
-    void OnClickDefenceButton() {
-        player.ApplyDefend();
-        player.battleStateMachine.ChangeState((int)PlayerStates.Idle);
+    private void OnEnable()
+    {
+        AttackBtn.image.color = UnseletedAlphaValue;
+        DefenceBtn.image.color = UnseletedAlphaValue;
     }
 }

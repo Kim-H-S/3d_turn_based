@@ -71,4 +71,18 @@ public class SlotMachine : MonoBehaviour
 
         button.interactable = true;
     }
+
+    public float GetValue()
+    {
+        float value = 0.5f;
+
+        value += (firstReelResult + secondReelResult + thirdReelResult) / 21f;
+
+        if(firstReelResult == secondReelResult && secondReelResult == thirdReelResult)
+        {
+            value += 1;
+        }
+
+        return value;
+    }
 }

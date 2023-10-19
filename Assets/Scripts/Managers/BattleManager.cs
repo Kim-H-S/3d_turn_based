@@ -27,11 +27,11 @@ public class BattleManager : MonoBehaviour
     
     public Player player;
     public List<Enemy> enemies;
-    public Enemy curFocusedEnemy;
+    private Enemy curFocusedEnemy;
 
     [Header("UI")]
-    public GameObject UISlotMachine;
-    public GameObject UIAction;
+    public SlotMachine uiSlotMachine;
+    public UIPlayerAction uiAction;
 
     private int enemyTurn;
     
@@ -50,12 +50,12 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public bool SendDamage(float damage) {
+    public bool SendDamage(float pureDamage) {
         if(curFocusedEnemy == null) {
             return false;
         }
         else {
-            curFocusedEnemy.ApplyDamage(damage);
+            curFocusedEnemy.ApplyDamage(pureDamage);
             return true;
         }
     }
@@ -74,5 +74,8 @@ public class BattleManager : MonoBehaviour
         
     }
 
-
+    public void FocusEnemy(Enemy enemy)
+    {
+        curFocusedEnemy = enemy;
+    }
 }

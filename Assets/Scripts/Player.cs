@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : Character, ICombatable
 {
+    [SerializeField] private PlayerSO playerSO; 
+
     public BattleStateMachine<Player> battleStateMachine;
     
 
@@ -21,19 +23,32 @@ public class Player : Character, ICombatable
         curHP = 100;
     }
 
-    public void ApplyAttack() {
-        Debug.Log("플레이어의 공격");
+    public void ApplyAttack()
+    {
+        atk = playerSO.ATK * BattleManager.Instance.uiSlotMachine.GetValue();
     }
 
-    public void ApplyDefend() {
-        Debug.Log("플레이어의 방어");
+    public void ApplyDefend()
+    {
+        def = playerSO.DEF * BattleManager.Instance.uiSlotMachine.GetValue();
+    }
+
+    public void ResetStat()
+    {
+        atk = 0;
+        def = 0;
     }
 
     public void ApplyDamage(float damage) {
-        curHP -= damage;
+        curHP -= damage - def;
 
         if(curHP <= 0) {
             // 사망
         }
+    }
+
+    public float GetAtk()
+    {
+        return atk;
     }
 }

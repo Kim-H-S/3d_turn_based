@@ -6,4 +6,6 @@ public class Character : MonoBehaviour
 {
     public bool hasTurn = false; // ICombatable에 넣고 싶은데 interface라 안 들어감..
     protected float curHP;
+    protected float atk;
+    protected float def;
 }

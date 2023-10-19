@@ -20,21 +20,30 @@ public class Enemy : Character, ICombatable
         battleStateMachine.states[(int)EnemyStates.SetStrategy] = new SetStrategy();
         battleStateMachine.states[(int)EnemyStates.Idle] = new EnemyIdle();
 
-        battleStateMachine.ChangeState((int)EnemyStates.Idle);
         curHP = enemySO.HP;
+
         curAction = EnemyAction.Idle;
+
+        battleStateMachine.ChangeState((int)EnemyStates.Idle);
     }
 
     public void ApplyAttack() {
-        Debug.Log("공격!");
+        atk = enemySO.ATK;
     }
 
-    public void ApplyDefend() {
-        Debug.Log("방어!");
+    public void ApplyDefend()
+    {
+        def = enemySO.DEF;
+    }
+
+    public void ResetStat()
+    {
+        atk = 0;
+        def = 0;
     }
 
     public void ApplyDamage(float damage) {
-        curHP -= damage;
+        curHP -= damage - def;
 
         if(curHP <= 0) {
             // 사망
