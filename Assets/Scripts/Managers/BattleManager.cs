@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-enum PlayerStates { HitSlot, InputAction, Idle, }
+enum PlayerStates { HitSlot, InputBattleAction, Idle, }
 enum EnemyStates { Action, SetStrategy, Idle, }
 
 public class BattleManager : MonoBehaviour
@@ -32,6 +32,7 @@ public class BattleManager : MonoBehaviour
     [Header("UI")]
     public SlotMachine uiSlotMachine;
     public UIPlayerAction uiAction;
+    public UIEnemyInfo uiEnemyInfo;
 
     private int enemyTurn;
     
@@ -50,12 +51,12 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public bool SendDamage(float pureDamage) {
+    public bool SendDamage(float damage) {
         if(curFocusedEnemy == null) {
             return false;
         }
         else {
-            curFocusedEnemy.ApplyDamage(pureDamage);
+            curFocusedEnemy.ApplyDamage(damage);
             return true;
         }
     }
@@ -77,5 +78,21 @@ public class BattleManager : MonoBehaviour
     public void FocusEnemy(Enemy enemy)
     {
         curFocusedEnemy = enemy;
+
+        if(curFocusedEnemy != null)
+        {
+            uiEnemyInfo.gameObject.SetActive(true);
+
+            uiEnemyInfo.SetInfo(
+                name: enemy.enemySO.name,
+                remainHp: enemy.GetCurrentHP(),
+                atk: enemy.enemySO.ATK,
+                def: enemy.enemySO.DEF
+                );
+        }
+        else
+        {
+            uiEnemyInfo.gameObject.SetActive(false);
+        }
     }
 }

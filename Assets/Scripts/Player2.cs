@@ -15,7 +15,7 @@ public class Player2 : Character, ICombatable
 
         battleStateMachine.states = new State<Player2>[System.Enum.GetValues(typeof(PlayerStates)).Length];
         battleStateMachine.states[(int)PlayerStates.HitSlot] = new HitSlot();
-        battleStateMachine.states[(int)PlayerStates.InputAction] = new InputBattleAction();
+        battleStateMachine.states[(int)PlayerStates.InputBattleAction] = new InputBattleAction();
         battleStateMachine.states[(int)PlayerStates.Idle] = new PlayerIdle();
 
         battleStateMachine.ChangeState((int)PlayerStates.HitSlot);

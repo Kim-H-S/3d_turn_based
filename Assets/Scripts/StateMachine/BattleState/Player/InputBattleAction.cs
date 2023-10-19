@@ -46,6 +46,9 @@ public class InputBattleAction : PlayerTurn
 
     void SelectAttack(Player2 player)
     {
+        // TODO: 여러번 클릭하면 계속 적용되지만 문제되지 않음
+        player.ApplyAttack();
+
         if (BattleManager.Instance.SendDamage(player.GetAtk()))
         {
             player.battleStateMachine.ChangeState((int)PlayerStates.Idle);
