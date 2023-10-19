@@ -96,4 +96,5 @@ Framework : .Net 6.0
 ## Main Functions
 
 ### Map
-MapGenerator [Wiki](https://github.com/Kim-H-S/3d_turn_based/wiki/MapGenerator)
+- MapGenerator [Wiki](https://github.com/Kim-H-S/3d_turn_based/wiki/MapGenerator)
+- MapManager [Wiki](https://github.com/Kim-H-S/3d_turn_based/wiki/MapManager)
