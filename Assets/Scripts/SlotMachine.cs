@@ -14,6 +14,8 @@ public class SlotMachine : MonoBehaviour
     private int secondReelResult = 0;
     private int thirdReelResult = 0;
 
+    [SerializeField] private Button button;
+
     private void Update()
     {
         Display();
@@ -42,9 +44,23 @@ public class SlotMachine : MonoBehaviour
     {
         //Debug.Log("슬롯을 레버 버튼을 눌렀다.");
 
+        button.interactable = false;
+
         firstReelResult = Random.Range(0, 8);
         secondReelResult = Random.Range(0, 8);
         thirdReelResult = Random.Range(0, 8);
 
+        Invoke("Hide", 1f);
+    }
+
+    void Hide()
+    {
+        UIManager.Instance.canvasSlotMachine.SetActive(false);
+        UIManager.Instance.canvasSlotMachine2.SetActive(true);
+    }
+
+    public int ResultNumber()
+    {
+        return firstReelResult * 100 + secondReelResult * 10 + thirdReelResult;
     }
 }
