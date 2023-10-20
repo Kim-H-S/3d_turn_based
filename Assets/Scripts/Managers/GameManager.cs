@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     public void ChasingCameraToPlayer()
     {
+        if (!Player.activeInHierarchy) return;
         if (Player == null) return;
 
         if (main == null)
@@ -86,4 +87,17 @@ public class GameManager : MonoBehaviour
         Root.gameObject.SetActive(true);
         SceneManager.sceneLoaded -= WaitSceneLoad;
     }
+
+    public void GameOver()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(SoundManager.Instance.gameObject);
+        Destroy(DataManager.Instance.gameObject);  
+        SceneManager.LoadScene("Title Scene");
+    }
+    
 }

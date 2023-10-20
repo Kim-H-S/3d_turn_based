@@ -34,6 +34,11 @@ public class UIMapTemp : MonoBehaviour
 
     public void OnEnable()
     {
+        if(MapManager.Instance.Map == null) 
+        {
+            Debug.Log("아직 맵을 생성하지 않았습니다");
+            return;
+        }
         MapWidth = MapManager.Instance.Map.GetLength(1);
         MapHeight = MapManager.Instance.Map.GetLength(0);
         // 실제 맵의 크기 == 하나의 아이콘을 그리는데 필요한 공간 * 아이콘의 갯수 - (마지막 아이콘은 간격이 필요없음)

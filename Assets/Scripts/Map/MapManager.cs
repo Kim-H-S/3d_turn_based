@@ -65,6 +65,7 @@ public class MapManager
     }
     public void DrawMap(Transform parent, int startPosX, int startPosY, int width, int height)
     {
+        if (isDrawed) return;
         for (int i = 0; i < Map.GetLength(0); i++)
         {
             for (int j = 0; j < Map.GetLength(1); j++)
