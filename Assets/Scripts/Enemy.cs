@@ -66,6 +66,7 @@ public class Enemy : Character, ICombatable
 
         if (curHP <= 0) {
             gameObject.SetActive(false);
+            BattleManager.Instance.KillEnemy();
         }
     }
 

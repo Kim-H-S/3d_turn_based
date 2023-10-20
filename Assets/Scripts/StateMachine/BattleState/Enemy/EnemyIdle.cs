@@ -8,9 +8,12 @@ public class EnemyIdle : EnemyTurn
     {
         base.Enter(Entity);
         
-        Entity.hasTurn = false;
-        
-        BattleManager.Instance.NextTurn();
+        if(Entity.hasTurn)
+        {
+            Entity.hasTurn = false;
+            BattleManager.Instance.NextTurn();
+        }
+
     }
 
     public override void Excute(Enemy Entity)

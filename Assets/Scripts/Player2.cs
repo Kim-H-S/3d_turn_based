@@ -59,7 +59,7 @@ public class Player2 : Character, ICombatable
 
 
         if (curHP <= 0) {
-            // 사망
+            GameManager.Instance.GameOver();
         }
     }
 
