@@ -45,6 +45,7 @@ public class BattleManager : MonoBehaviour
         player.hasTurn = false;
         enemies[0].hasTurn = true;
         enemyTurn = 0;
+        left += 1;
     }
 
     private void Update() {
