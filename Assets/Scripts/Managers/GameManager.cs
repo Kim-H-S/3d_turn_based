@@ -87,4 +87,17 @@ public class GameManager : MonoBehaviour
         Root.gameObject.SetActive(true);
         SceneManager.sceneLoaded -= WaitSceneLoad;
     }
+
+    public void GameOver()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(SoundManager.Instance.gameObject);
+        Destroy(DataManager.Instance.gameObject);  
+        SceneManager.LoadScene("Title Scene");
+    }
+    
 }
