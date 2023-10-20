@@ -40,6 +40,7 @@ public class BattleManager : MonoBehaviour
     public GameObject uiDamage;
 
     private int enemyTurn;
+    private int left;
     
     private void Awake() {
         player.hasTurn = false;
@@ -111,5 +112,13 @@ public class BattleManager : MonoBehaviour
 
         uiEnemyInfo.gameObject.SetActive(false);
         curFocusedEnemy = null;
+    }
+
+    public void KillEnemy() {
+        left--;
+
+        if(left == 0) {
+            GameManager.Instance.ExitBattleScene();
+        }
     }
 }
