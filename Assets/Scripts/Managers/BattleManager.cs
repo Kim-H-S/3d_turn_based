@@ -26,7 +26,10 @@ public class BattleManager : MonoBehaviour
     }
     
     public Player2 player;
-    public List<Enemy> enemies;
+    public Transform[] spawnPoint;
+
+    private List<Enemy> enemies;
+    public GameObject enemyPrefab;
     private Enemy curFocusedEnemy;
 
     [Header("UI")]
@@ -43,6 +46,14 @@ public class BattleManager : MonoBehaviour
     private int left;
     
     private void Awake() {
+        enemies = new List<Enemy>();
+        left = Random.Range(0, spawnPoint.Length);
+
+        for(int i = 0; i <= left; i++) {
+            GameObject enemy = Instantiate(enemyPrefab, spawnPoint[i]);
+            enemies.Add(enemy.GetComponent<Enemy>());
+        }
+
         player.hasTurn = false;
         enemies[0].hasTurn = true;
         enemyTurn = 0;

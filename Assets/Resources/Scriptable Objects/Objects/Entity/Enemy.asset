@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Enemy
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySO
+  <Name>k__BackingField: "\uD2B8\uB864"
+  <HP>k__BackingField: 50
+  <ATK>k__BackingField: 5
+  <DEF>k__BackingField: 10
