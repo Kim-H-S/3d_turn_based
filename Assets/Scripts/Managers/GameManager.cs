@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     public void ChasingCameraToPlayer()
     {
+        if (!Player.activeInHierarchy) return;
         if (Player == null) return;
 
         if (main == null)
